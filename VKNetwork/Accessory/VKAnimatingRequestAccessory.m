@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Fenbi. All rights reserved.
 //
 
-#import "YTKAnimatingRequestAccessory.h"
-//#import "YTKAlertUtils.h"
+#import "VKAnimatingRequestAccessory.h"
 
 
-@implementation YTKAnimatingRequestAccessory
+
+@implementation VKAnimatingRequestAccessory
 
 - (id)initWithAnimatingView:(UIView *)animatingView animatingText:(NSString *)animatingText {
     self = [super init];

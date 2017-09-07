@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		49645EC9C91D0F1F2D31FA78 /* libPods-VKNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7DCFE279AF6FC9170F922C /* libPods-VKNetwork.a */; };
-		640526081F5FFBF400223BF5 /* YTKAnimatingRequestAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 640526011F5FFBF400223BF5 /* YTKAnimatingRequestAccessory.m */; };
-		640526091F5FFBF400223BF5 /* YTKBaseRequest+AnimatingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 640526031F5FFBF400223BF5 /* YTKBaseRequest+AnimatingAccessory.m */; };
-		6415057C1F5FE5CC00D5EB20 /* YTKBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6415056A1F5FE5CC00D5EB20 /* YTKBaseRequest.m */; };
-		641505811F5FE5CC00D5EB20 /* YTKNetworkAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 641505751F5FE5CC00D5EB20 /* YTKNetworkAgent.m */; };
-		641505821F5FE5CC00D5EB20 /* YTKNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 641505771F5FE5CC00D5EB20 /* YTKNetworkConfig.m */; };
-		641505831F5FE5CC00D5EB20 /* YTKNetworkPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 641505791F5FE5CC00D5EB20 /* YTKNetworkPrivate.m */; };
-		641505841F5FE5CC00D5EB20 /* YTKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6415057B1F5FE5CC00D5EB20 /* YTKRequest.m */; };
+		640526081F5FFBF400223BF5 /* VKAnimatingRequestAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 640526011F5FFBF400223BF5 /* VKAnimatingRequestAccessory.m */; };
+		640526091F5FFBF400223BF5 /* VKBaseRequest+AnimatingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 640526031F5FFBF400223BF5 /* VKBaseRequest+AnimatingAccessory.m */; };
+		6415057C1F5FE5CC00D5EB20 /* VKBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6415056A1F5FE5CC00D5EB20 /* VKBaseRequest.m */; };
+		641505811F5FE5CC00D5EB20 /* VKNetworkAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 641505751F5FE5CC00D5EB20 /* VKNetworkAgent.m */; };
+		641505821F5FE5CC00D5EB20 /* VKNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 641505771F5FE5CC00D5EB20 /* VKNetworkConfig.m */; };
+		641505831F5FE5CC00D5EB20 /* VKNetworkPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 641505791F5FE5CC00D5EB20 /* VKNetworkPrivate.m */; };
+		641505841F5FE5CC00D5EB20 /* VKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6415057B1F5FE5CC00D5EB20 /* VKRequest.m */; };
 		641505871F5FE70200D5EB20 /* VKDBBookQueryRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 641505861F5FE70200D5EB20 /* VKDBBookQueryRequest.m */; };
 		6489EB1D1F57FAF400B79C14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6489EB1C1F57FAF400B79C14 /* main.m */; };
 		6489EB201F57FAF400B79C14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6489EB1F1F57FAF400B79C14 /* AppDelegate.m */; };
@@ -26,21 +26,21 @@
 
 /* Begin PBXFileReference section */
 		3EC351BBEE34EC38D491EFD3 /* Pods-VKNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKNetwork/Pods-VKNetwork.debug.xcconfig"; sourceTree = "<group>"; };
-		640526001F5FFBF400223BF5 /* YTKAnimatingRequestAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKAnimatingRequestAccessory.h; sourceTree = "<group>"; };
-		640526011F5FFBF400223BF5 /* YTKAnimatingRequestAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKAnimatingRequestAccessory.m; sourceTree = "<group>"; };
-		640526021F5FFBF400223BF5 /* YTKBaseRequest+AnimatingAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YTKBaseRequest+AnimatingAccessory.h"; sourceTree = "<group>"; };
-		640526031F5FFBF400223BF5 /* YTKBaseRequest+AnimatingAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YTKBaseRequest+AnimatingAccessory.m"; sourceTree = "<group>"; };
-		641505691F5FE5CC00D5EB20 /* YTKBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKBaseRequest.h; sourceTree = "<group>"; };
-		6415056A1F5FE5CC00D5EB20 /* YTKBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKBaseRequest.m; sourceTree = "<group>"; };
-		641505731F5FE5CC00D5EB20 /* YTKNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetwork.h; sourceTree = "<group>"; };
-		641505741F5FE5CC00D5EB20 /* YTKNetworkAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetworkAgent.h; sourceTree = "<group>"; };
-		641505751F5FE5CC00D5EB20 /* YTKNetworkAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKNetworkAgent.m; sourceTree = "<group>"; };
-		641505761F5FE5CC00D5EB20 /* YTKNetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetworkConfig.h; sourceTree = "<group>"; };
-		641505771F5FE5CC00D5EB20 /* YTKNetworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKNetworkConfig.m; sourceTree = "<group>"; };
-		641505781F5FE5CC00D5EB20 /* YTKNetworkPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetworkPrivate.h; sourceTree = "<group>"; };
-		641505791F5FE5CC00D5EB20 /* YTKNetworkPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKNetworkPrivate.m; sourceTree = "<group>"; };
-		6415057A1F5FE5CC00D5EB20 /* YTKRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKRequest.h; sourceTree = "<group>"; };
-		6415057B1F5FE5CC00D5EB20 /* YTKRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKRequest.m; sourceTree = "<group>"; };
+		640526001F5FFBF400223BF5 /* VKAnimatingRequestAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKAnimatingRequestAccessory.h; sourceTree = "<group>"; };
+		640526011F5FFBF400223BF5 /* VKAnimatingRequestAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKAnimatingRequestAccessory.m; sourceTree = "<group>"; };
+		640526021F5FFBF400223BF5 /* VKBaseRequest+AnimatingAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VKBaseRequest+AnimatingAccessory.h"; sourceTree = "<group>"; };
+		640526031F5FFBF400223BF5 /* VKBaseRequest+AnimatingAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VKBaseRequest+AnimatingAccessory.m"; sourceTree = "<group>"; };
+		641505691F5FE5CC00D5EB20 /* VKBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBaseRequest.h; sourceTree = "<group>"; };
+		6415056A1F5FE5CC00D5EB20 /* VKBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBaseRequest.m; sourceTree = "<group>"; };
+		641505731F5FE5CC00D5EB20 /* VKNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKNetwork.h; sourceTree = "<group>"; };
+		641505741F5FE5CC00D5EB20 /* VKNetworkAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKNetworkAgent.h; sourceTree = "<group>"; };
+		641505751F5FE5CC00D5EB20 /* VKNetworkAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKNetworkAgent.m; sourceTree = "<group>"; };
+		641505761F5FE5CC00D5EB20 /* VKNetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKNetworkConfig.h; sourceTree = "<group>"; };
+		641505771F5FE5CC00D5EB20 /* VKNetworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKNetworkConfig.m; sourceTree = "<group>"; };
+		641505781F5FE5CC00D5EB20 /* VKNetworkPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKNetworkPrivate.h; sourceTree = "<group>"; };
+		641505791F5FE5CC00D5EB20 /* VKNetworkPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKNetworkPrivate.m; sourceTree = "<group>"; };
+		6415057A1F5FE5CC00D5EB20 /* VKRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKRequest.h; sourceTree = "<group>"; };
+		6415057B1F5FE5CC00D5EB20 /* VKRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKRequest.m; sourceTree = "<group>"; };
 		641505851F5FE70200D5EB20 /* VKDBBookQueryRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKDBBookQueryRequest.h; sourceTree = "<group>"; };
 		641505861F5FE70200D5EB20 /* VKDBBookQueryRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKDBBookQueryRequest.m; sourceTree = "<group>"; };
 		6489EB181F57FAF400B79C14 /* VKNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,10 +72,10 @@
 		640525FF1F5FFBF400223BF5 /* Accessory */ = {
 			isa = PBXGroup;
 			children = (
-				640526001F5FFBF400223BF5 /* YTKAnimatingRequestAccessory.h */,
-				640526011F5FFBF400223BF5 /* YTKAnimatingRequestAccessory.m */,
-				640526021F5FFBF400223BF5 /* YTKBaseRequest+AnimatingAccessory.h */,
-				640526031F5FFBF400223BF5 /* YTKBaseRequest+AnimatingAccessory.m */,
+				640526001F5FFBF400223BF5 /* VKAnimatingRequestAccessory.h */,
+				640526011F5FFBF400223BF5 /* VKAnimatingRequestAccessory.m */,
+				640526021F5FFBF400223BF5 /* VKBaseRequest+AnimatingAccessory.h */,
+				640526031F5FFBF400223BF5 /* VKBaseRequest+AnimatingAccessory.m */,
 			);
 			path = Accessory;
 			sourceTree = "<group>";
@@ -83,17 +83,17 @@
 		641505681F5FE5CC00D5EB20 /* YTKNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				641505731F5FE5CC00D5EB20 /* YTKNetwork.h */,
-				6415057A1F5FE5CC00D5EB20 /* YTKRequest.h */,
-				6415057B1F5FE5CC00D5EB20 /* YTKRequest.m */,
-				641505691F5FE5CC00D5EB20 /* YTKBaseRequest.h */,
-				6415056A1F5FE5CC00D5EB20 /* YTKBaseRequest.m */,
-				641505741F5FE5CC00D5EB20 /* YTKNetworkAgent.h */,
-				641505751F5FE5CC00D5EB20 /* YTKNetworkAgent.m */,
-				641505761F5FE5CC00D5EB20 /* YTKNetworkConfig.h */,
-				641505771F5FE5CC00D5EB20 /* YTKNetworkConfig.m */,
-				641505781F5FE5CC00D5EB20 /* YTKNetworkPrivate.h */,
-				641505791F5FE5CC00D5EB20 /* YTKNetworkPrivate.m */,
+				641505731F5FE5CC00D5EB20 /* VKNetwork.h */,
+				6415057A1F5FE5CC00D5EB20 /* VKRequest.h */,
+				6415057B1F5FE5CC00D5EB20 /* VKRequest.m */,
+				641505691F5FE5CC00D5EB20 /* VKBaseRequest.h */,
+				6415056A1F5FE5CC00D5EB20 /* VKBaseRequest.m */,
+				641505741F5FE5CC00D5EB20 /* VKNetworkAgent.h */,
+				641505751F5FE5CC00D5EB20 /* VKNetworkAgent.m */,
+				641505761F5FE5CC00D5EB20 /* VKNetworkConfig.h */,
+				641505771F5FE5CC00D5EB20 /* VKNetworkConfig.m */,
+				641505781F5FE5CC00D5EB20 /* VKNetworkPrivate.h */,
+				641505791F5FE5CC00D5EB20 /* VKNetworkPrivate.m */,
 			);
 			path = YTKNetwork;
 			sourceTree = "<group>";
@@ -284,17 +284,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				641505811F5FE5CC00D5EB20 /* YTKNetworkAgent.m in Sources */,
+				641505811F5FE5CC00D5EB20 /* VKNetworkAgent.m in Sources */,
 				6489EB231F57FAF400B79C14 /* ViewController.m in Sources */,
 				6489EB201F57FAF400B79C14 /* AppDelegate.m in Sources */,
-				641505841F5FE5CC00D5EB20 /* YTKRequest.m in Sources */,
-				641505831F5FE5CC00D5EB20 /* YTKNetworkPrivate.m in Sources */,
+				641505841F5FE5CC00D5EB20 /* VKRequest.m in Sources */,
+				641505831F5FE5CC00D5EB20 /* VKNetworkPrivate.m in Sources */,
 				6489EB1D1F57FAF400B79C14 /* main.m in Sources */,
-				640526091F5FFBF400223BF5 /* YTKBaseRequest+AnimatingAccessory.m in Sources */,
-				640526081F5FFBF400223BF5 /* YTKAnimatingRequestAccessory.m in Sources */,
+				640526091F5FFBF400223BF5 /* VKBaseRequest+AnimatingAccessory.m in Sources */,
+				640526081F5FFBF400223BF5 /* VKAnimatingRequestAccessory.m in Sources */,
 				641505871F5FE70200D5EB20 /* VKDBBookQueryRequest.m in Sources */,
-				641505821F5FE5CC00D5EB20 /* YTKNetworkConfig.m in Sources */,
-				6415057C1F5FE5CC00D5EB20 /* YTKBaseRequest.m in Sources */,
+				641505821F5FE5CC00D5EB20 /* VKNetworkConfig.m in Sources */,
+				6415057C1F5FE5CC00D5EB20 /* VKBaseRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

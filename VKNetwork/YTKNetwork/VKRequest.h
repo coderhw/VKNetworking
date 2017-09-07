@@ -6,20 +6,20 @@
 //
 
 
-#import "YTKBaseRequest.h"
+#import "VKBaseRequest.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 FOUNDATION_EXPORT NSString *const YTKRequestCacheErrorDomain;
 
 NS_ENUM(NSInteger) {
-    YTKRequestCacheErrorExpired = -1,
-    YTKRequestCacheErrorVersionMismatch = -2,
-    YTKRequestCacheErrorSensitiveDataMismatch = -3,
-    YTKRequestCacheErrorAppVersionMismatch = -4,
-    YTKRequestCacheErrorInvalidCacheTime = -5,
-    YTKRequestCacheErrorInvalidMetadata = -6,
-    YTKRequestCacheErrorInvalidCacheData = -7,
+    VKRequestCacheErrorExpired = -1,
+    VKRequestCacheErrorVersionMismatch = -2,
+    VKRequestCacheErrorSensitiveDataMismatch = -3,
+    VKRequestCacheErrorAppVersionMismatch = -4,
+    VKRequestCacheErrorInvalidCacheTime = -5,
+    VKRequestCacheErrorInvalidMetadata = -6,
+    VKRequestCacheErrorInvalidCacheData = -7,
 };
 
 ///  YTKRequest is the base class you should inherit to create your own request class.
@@ -27,7 +27,7 @@ NS_ENUM(NSInteger) {
 ///  request will not be cached whatsoever, because download request may involve complicated
 ///  cache control policy controlled by `Cache-Control`, `Last-Modified`, etc.
 /// YTKRequest
-@interface YTKRequest : YTKBaseRequest
+@interface VKRequest : VKBaseRequest
 
 ///  是否使用缓存
 ///  默认为No, 需要配置额外的参数才能让缓存发挥作用。

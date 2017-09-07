@@ -23,7 +23,7 @@
 }
 
 - (BOOL)ignoreCache {
-    return NO;
+    return YES;
 }
 
 //- (YTKRequestMethod)requestMethod {

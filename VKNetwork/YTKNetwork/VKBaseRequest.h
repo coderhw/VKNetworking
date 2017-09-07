@@ -12,41 +12,41 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const YTKRequestValidationErrorDomain;
 
 NS_ENUM(NSInteger) {
-    YTKRequestValidationErrorInvalidStatusCode = -8,
-    YTKRequestValidationErrorInvalidJSONFormat = -9,
+    VKRequestValidationErrorInvalidStatusCode = -8,
+    VKRequestValidationErrorInvalidJSONFormat = -9,
 };
 
 ///  HTTP请求方法
 typedef NS_ENUM(NSInteger, YTKRequestMethod) {
-    YTKRequestMethodGET = 0,
-    YTKRequestMethodPOST,
-    YTKRequestMethodHEAD,
-    YTKRequestMethodPUT,
-    YTKRequestMethodDELETE,
-    YTKRequestMethodPATCH,
+    VKRequestMethodGET = 0,
+    VKRequestMethodPOST,
+    VKRequestMethodHEAD,
+    VKRequestMethodPUT,
+    VKRequestMethodDELETE,
+    VKRequestMethodPATCH,
 };
 
 ///  Request serializer type.
 typedef NS_ENUM(NSInteger, YTKRequestSerializerType) {
-    YTKRequestSerializerTypeHTTP = 0,
-    YTKRequestSerializerTypeJSON,
+    VKRequestSerializerTypeHTTP = 0,
+    VKRequestSerializerTypeJSON,
 };
 
 ///  响应部分序列化类型。通过它决定了response serialization process 和 responseObject
 typedef NS_ENUM(NSInteger, YTKResponseSerializerType) {
     /// NSData type
-    YTKResponseSerializerTypeHTTP,
+    VKResponseSerializerTypeHTTP,
     /// JSON object type
-    YTKResponseSerializerTypeJSON,
+    VKResponseSerializerTypeJSON,
     /// NSXMLParser type
-    YTKResponseSerializerTypeXMLParser,
+    VKResponseSerializerTypeXMLParser,
 };
 
 ///  请求优先级
 typedef NS_ENUM(NSInteger, YTKRequestPriority) {
-    YTKRequestPriorityLow = -4L,
-    YTKRequestPriorityDefault = 0,
-    YTKRequestPriorityHigh = 4,
+    VKRequestPriorityLow = -4L,
+    VKRequestPriorityDefault = 0,
+    VKRequestPriorityHigh = 4,
 };
 
 @protocol AFMultipartFormData;
@@ -54,9 +54,9 @@ typedef NS_ENUM(NSInteger, YTKRequestPriority) {
 typedef void (^AFConstructingBlock)(id<AFMultipartFormData> formData);
 typedef void (^AFURLSessionTaskProgressBlock)(NSProgress *);
 
-@class YTKBaseRequest;
+@class VKBaseRequest;
 
-typedef void(^YTKRequestCompletionBlock)(__kindof YTKBaseRequest *request);
+typedef void(^YTKRequestCompletionBlock)(__kindof VKBaseRequest *request);
 
 /// YTKRequestDelegate 定义了一些可选择的方法，通过这些方法可以接收到网络相关的消息。
 /// 所有的这些方法都会在主线程中调用。
@@ -66,17 +66,17 @@ typedef void(^YTKRequestCompletionBlock)(__kindof YTKBaseRequest *request);
 ///  代理方法:请求成功结束
 ///
 ///  @param request 对应的请求
-- (void)requestFinished:(__kindof YTKBaseRequest *)request;
+- (void)requestFinished:(__kindof VKBaseRequest *)request;
 
 ///  代理方法: 请求失败
 ///
 ///  @param request 对应的请求
-- (void)requestFailed:(__kindof YTKBaseRequest *)request;
+- (void)requestFailed:(__kindof VKBaseRequest *)request;
 
 @end
 
-/// Objects可以遵循这YTKRequestAccessory协议，通过该协议定义的方法来追踪Request的状态。所有的方法会在主线程中被调用
-@protocol YTKRequestAccessory <NSObject>
+/// Objects可以遵循这VKRequestAccessory协议，通过该协议定义的方法来追踪Request的状态。所有的方法会在主线程中被调用
+@protocol VKRequestAccessory <NSObject>
 
 @optional
 
@@ -98,7 +98,7 @@ typedef void(^YTKRequestCompletionBlock)(__kindof YTKBaseRequest *request);
 @end
 
 ///  YTKBaseRequest 是网络请求的一个抽象类，它为创建新的请求提供了一些属性。 并且它是YTKRequest的基类。
-@interface YTKBaseRequest : NSObject
+@interface VKBaseRequest : NSObject
 
 #pragma mark - Request and Response Information
 
@@ -168,7 +168,7 @@ typedef void(^YTKRequestCompletionBlock)(__kindof YTKBaseRequest *request);
 @property (nonatomic, copy, nullable) YTKRequestCompletionBlock failureCompletionBlock;
 
 ///  用于添加accossories object, 注意:如果通过addAccessory来添加acceesory, 该数组则会自动被创建出来, 默认为nil.
-@property (nonatomic, strong, nullable) NSMutableArray<id<YTKRequestAccessory>> *requestAccessories;
+@property (nonatomic, strong, nullable) NSMutableArray<id<VKRequestAccessory>> *requestAccessories;
 
 ///  This can be use to construct HTTP body when needed in POST request. Default is nil.
 @property (nonatomic, copy, nullable) AFConstructingBlock constructingBodyBlock;
@@ -187,7 +187,7 @@ typedef void(^YTKRequestCompletionBlock)(__kindof YTKBaseRequest *request);
 - (void)clearCompletionBlock;
 
 ///  Convenience method to add request accessory. See also `requestAccessories`.
-- (void)addAccessory:(id<YTKRequestAccessory>)accessory;
+- (void)addAccessory:(id<VKRequestAccessory>)accessory;
 
 
 #pragma mark - Request Action

@@ -7,20 +7,20 @@
 
 
 #import <Foundation/Foundation.h>
-#import "YTKRequest.h"
-#import "YTKBaseRequest.h"
+#import "VKRequest.h"
+#import "VKBaseRequest.h"
 //#import "YTKBatchRequest.h"
 //#import "YTKChainRequest.h"
-#import "YTKNetworkAgent.h"
-#import "YTKNetworkConfig.h"
+#import "VKNetworkAgent.h"
+#import "VKNetworkConfig.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-FOUNDATION_EXPORT void YTKLog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
+//FOUNDATION_EXPORT void YTKLog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
 
 @class AFHTTPSessionManager;
 
-@interface YTKNetworkUtils : NSObject
+@interface VKNetworkUtils : NSObject
 
 + (BOOL)validateJSON:(id)json withValidator:(id)jsonValidator;
 
@@ -30,19 +30,19 @@ FOUNDATION_EXPORT void YTKLog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
 
 + (NSString *)appVersionString;
 
-+ (NSStringEncoding)stringEncodingWithRequest:(YTKBaseRequest *)request;
++ (NSStringEncoding)stringEncodingWithRequest:(VKBaseRequest *)request;
 
 + (BOOL)validateResumeData:(NSData *)data;
 
 @end
 
-@interface YTKRequest (Getter)
+@interface VKRequest (Getter)
 
 - (NSString *)cacheBasePath;
 
 @end
 
-@interface YTKBaseRequest (Setter)
+@interface VKBaseRequest (Setter)
 
 @property (nonatomic, strong, readwrite) NSURLSessionTask *requestTask;
 @property (nonatomic, strong, readwrite, nullable) NSData *responseData;
@@ -53,7 +53,7 @@ FOUNDATION_EXPORT void YTKLog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
 
 @end
 
-@interface YTKBaseRequest (RequestAccessory)
+@interface VKBaseRequest (RequestAccessory)
 
 - (void)toggleAccessoriesWillStartCallBack;
 - (void)toggleAccessoriesWillStopCallBack;
@@ -61,7 +61,7 @@ FOUNDATION_EXPORT void YTKLog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
 
 @end
 
-@interface YTKNetworkAgent (Private)
+@interface VKNetworkAgent (Private)
 
 - (AFHTTPSessionManager *)manager;
 - (void)resetURLSessionManager;

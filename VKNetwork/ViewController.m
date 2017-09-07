@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "VKDBBookQueryRequest.h"
-#import "YTKBaseRequest+AnimatingAccessory.h"
+#import "VKBaseRequest+AnimatingAccessory.h"
 
 
 @interface ViewController ()
@@ -29,10 +29,10 @@
     dbQueryRequest.animatingText = @"正在加载";
     dbQueryRequest.animatingView = self.view;
     
-    [dbQueryRequest startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+    [dbQueryRequest startWithCompletionBlockWithSuccess:^(__kindof VKBaseRequest * _Nonnull request) {
         
         NSLog(@"request:%@", request.responseString);
-    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+    } failure:^(__kindof VKBaseRequest * _Nonnull request) {
         
     }];
 }

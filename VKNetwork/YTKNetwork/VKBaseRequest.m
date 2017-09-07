@@ -5,9 +5,9 @@
 //  Copyright © 2017年 Evan. All rights reserved.
 //
 
-#import "YTKBaseRequest.h"
-#import "YTKNetworkAgent.h"
-#import "YTKNetworkPrivate.h"
+#import "VKBaseRequest.h"
+#import "VKNetworkAgent.h"
+#import "VKNetworkPrivate.h"
 
 #if __has_include(<AFNetworking/AFNetworking.h>)
 #import <AFNetworking/AFNetworking.h>
@@ -17,7 +17,7 @@
 
 NSString *const YTKRequestValidationErrorDomain = @"com.yuantiku.request.validation";
 
-@interface YTKBaseRequest ()
+@interface VKBaseRequest ()
 
 @property (nonatomic, strong, readwrite) NSURLSessionTask *requestTask;
 @property (nonatomic, strong, readwrite) NSData *responseData;
@@ -28,7 +28,7 @@ NSString *const YTKRequestValidationErrorDomain = @"com.yuantiku.request.validat
 
 @end
 
-@implementation YTKBaseRequest
+@implementation VKBaseRequest
 
 #pragma mark - Request and Response Information
 
@@ -80,7 +80,7 @@ NSString *const YTKRequestValidationErrorDomain = @"com.yuantiku.request.validat
     self.failureCompletionBlock = nil;
 }
 
-- (void)addAccessory:(id<YTKRequestAccessory>)accessory {
+- (void)addAccessory:(id<VKRequestAccessory>)accessory {
     if (!self.requestAccessories) {
         self.requestAccessories = [NSMutableArray array];
     }
@@ -91,13 +91,13 @@ NSString *const YTKRequestValidationErrorDomain = @"com.yuantiku.request.validat
 
 - (void)start {
     [self toggleAccessoriesWillStartCallBack];
-    [[YTKNetworkAgent sharedAgent] addRequest:self];
+    [[VKNetworkAgent sharedAgent] addRequest:self];
 }
 
 - (void)stop {
     [self toggleAccessoriesWillStopCallBack];
     self.delegate = nil;
-    [[YTKNetworkAgent sharedAgent] cancelRequest:self];
+    [[VKNetworkAgent sharedAgent] cancelRequest:self];
     [self toggleAccessoriesDidStopCallBack];
 }
 
@@ -146,15 +146,15 @@ NSString *const YTKRequestValidationErrorDomain = @"com.yuantiku.request.validat
 }
 
 - (YTKRequestMethod)requestMethod {
-    return YTKRequestMethodGET;
+    return VKRequestMethodGET;
 }
 
 - (YTKRequestSerializerType)requestSerializerType {
-    return YTKRequestSerializerTypeHTTP;
+    return VKRequestSerializerTypeHTTP;
 }
 
 - (YTKResponseSerializerType)responseSerializerType {
-    return YTKResponseSerializerTypeJSON;
+    return VKResponseSerializerTypeJSON;
 }
 
 - (NSArray *)requestAuthorizationHeaderFieldArray {

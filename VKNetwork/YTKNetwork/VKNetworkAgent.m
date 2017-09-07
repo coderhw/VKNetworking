@@ -6,9 +6,9 @@
 //
 
 
-#import "YTKNetworkAgent.h"
-#import "YTKNetworkConfig.h"
-#import "YTKNetworkPrivate.h"
+#import "VKNetworkAgent.h"
+#import "VKNetworkConfig.h"
+#import "VKNetworkPrivate.h"
 #import <pthread/pthread.h>
 
 #if __has_include(<AFNetworking/AFNetworking.h>)
@@ -22,19 +22,19 @@
 
 #define kYTKNetworkIncompleteDownloadFolderName @"Incomplete"
 
-@implementation YTKNetworkAgent {
+@implementation VKNetworkAgent {
     AFHTTPSessionManager *_manager;
-    YTKNetworkConfig *_config;
+    VKNetworkConfig *_config;
     AFJSONResponseSerializer *_jsonResponseSerializer;
     AFXMLParserResponseSerializer *_xmlParserResponseSerialzier;
-    NSMutableDictionary<NSNumber *, YTKBaseRequest *> *_requestsRecord;
+    NSMutableDictionary<NSNumber *, VKBaseRequest *> *_requestsRecord;
 
     dispatch_queue_t _processingQueue;
     pthread_mutex_t _lock;
     NSIndexSet *_allStatusCodes;
 }
 
-+ (YTKNetworkAgent *)sharedAgent {
++ (VKNetworkAgent *)sharedAgent {
     static id sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -46,7 +46,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _config = [YTKNetworkConfig sharedConfig];
+        _config = [VKNetworkConfig sharedConfig];
         _manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:_config.sessionConfiguration];
         _requestsRecord = [NSMutableDictionary dictionary];
         _processingQueue = dispatch_queue_create("com.yuantiku.networkagent.processing", DISPATCH_QUEUE_CONCURRENT);
@@ -81,7 +81,7 @@
 
 #pragma mark -
 
-- (NSString *)buildRequestUrl:(YTKBaseRequest *)request {
+- (NSString *)buildRequestUrl:(VKBaseRequest *)request {
     NSParameterAssert(request != nil);
 
     NSString *detailUrl = [request requestUrl];
@@ -92,7 +92,7 @@
     }
     // Filter URL if needed
     NSArray *filters = [_config urlFilters];
-    for (id<YTKUrlFilterProtocol> f in filters) {
+    for (id<VKUrlFilterProtocol> f in filters) {
         detailUrl = [f filterUrl:detailUrl withRequest:request];
     }
 
@@ -120,11 +120,11 @@
     return [NSURL URLWithString:detailUrl relativeToURL:url].absoluteString;
 }
 
-- (AFHTTPRequestSerializer *)requestSerializerForRequest:(YTKBaseRequest *)request {
+- (AFHTTPRequestSerializer *)requestSerializerForRequest:(VKBaseRequest *)request {
     AFHTTPRequestSerializer *requestSerializer = nil;
-    if (request.requestSerializerType == YTKRequestSerializerTypeHTTP) {
+    if (request.requestSerializerType == VKRequestSerializerTypeHTTP) {
         requestSerializer = [AFHTTPRequestSerializer serializer];
-    } else if (request.requestSerializerType == YTKRequestSerializerTypeJSON) {
+    } else if (request.requestSerializerType == VKRequestSerializerTypeJSON) {
         requestSerializer = [AFJSONRequestSerializer serializer];
     }
 
@@ -149,7 +149,7 @@
     return requestSerializer;
 }
 
-- (NSURLSessionTask *)sessionTaskForRequest:(YTKBaseRequest *)request error:(NSError * _Nullable __autoreleasing *)error {
+- (NSURLSessionTask *)sessionTaskForRequest:(VKBaseRequest *)request error:(NSError * _Nullable __autoreleasing *)error {
     YTKRequestMethod method = [request requestMethod];
     NSString *url = [self buildRequestUrl:request];
     id param = request.requestArgument;
@@ -157,22 +157,22 @@
     AFHTTPRequestSerializer *requestSerializer = [self requestSerializerForRequest:request];
 
     switch (method) {
-        case YTKRequestMethodGET:
+        case VKRequestMethodGET:
             return [self dataTaskWithHTTPMethod:@"GET" requestSerializer:requestSerializer URLString:url parameters:param error:error];
-        case YTKRequestMethodPOST:
+        case VKRequestMethodPOST:
             return [self dataTaskWithHTTPMethod:@"POST" requestSerializer:requestSerializer URLString:url parameters:param constructingBodyWithBlock:constructingBlock error:error];
-        case YTKRequestMethodHEAD:
+        case VKRequestMethodHEAD:
             return [self dataTaskWithHTTPMethod:@"HEAD" requestSerializer:requestSerializer URLString:url parameters:param error:error];
-        case YTKRequestMethodPUT:
+        case VKRequestMethodPUT:
             return [self dataTaskWithHTTPMethod:@"PUT" requestSerializer:requestSerializer URLString:url parameters:param error:error];
-        case YTKRequestMethodDELETE:
+        case VKRequestMethodDELETE:
             return [self dataTaskWithHTTPMethod:@"DELETE" requestSerializer:requestSerializer URLString:url parameters:param error:error];
-        case YTKRequestMethodPATCH:
+        case VKRequestMethodPATCH:
             return [self dataTaskWithHTTPMethod:@"PATCH" requestSerializer:requestSerializer URLString:url parameters:param error:error];
     }
 }
 
-- (void)addRequest:(YTKBaseRequest *)request {
+- (void)addRequest:(VKBaseRequest *)request {
     NSParameterAssert(request != nil);
 
     NSError * __autoreleasing requestSerializationError = nil;
@@ -198,13 +198,13 @@
     // !!Available on iOS 8 +
     if ([request.requestTask respondsToSelector:@selector(priority)]) {
         switch (request.requestPriority) {
-            case YTKRequestPriorityHigh:
+            case VKRequestPriorityHigh:
                 request.requestTask.priority = NSURLSessionTaskPriorityHigh;
                 break;
-            case YTKRequestPriorityLow:
+            case VKRequestPriorityLow:
                 request.requestTask.priority = NSURLSessionTaskPriorityLow;
                 break;
-            case YTKRequestPriorityDefault:
+            case VKRequestPriorityDefault:
                 /*!!fall through*/
             default:
                 request.requestTask.priority = NSURLSessionTaskPriorityDefault;
@@ -213,12 +213,12 @@
     }
 
     // Retain request
-    YTKLog(@"Add request: %@", NSStringFromClass([request class]));
+    NSLog(@"Add request: %@", NSStringFromClass([request class]));
     [self addRequestToRecord:request];
     [request.requestTask resume];
 }
 
-- (void)cancelRequest:(YTKBaseRequest *)request {
+- (void)cancelRequest:(VKBaseRequest *)request {
     NSParameterAssert(request != nil);
 
     [request.requestTask cancel];
@@ -234,7 +234,7 @@
         NSArray *copiedKeys = [allKeys copy];
         for (NSNumber *key in copiedKeys) {
             Lock();
-            YTKBaseRequest *request = _requestsRecord[key];
+            VKBaseRequest *request = _requestsRecord[key];
             Unlock();
             // We are using non-recursive lock.
             // Do not lock `stop`, otherwise deadlock may occur.
@@ -243,21 +243,21 @@
     }
 }
 
-- (BOOL)validateResult:(YTKBaseRequest *)request error:(NSError * _Nullable __autoreleasing *)error {
+- (BOOL)validateResult:(VKBaseRequest *)request error:(NSError * _Nullable __autoreleasing *)error {
     BOOL result = [request statusCodeValidator];
     if (!result) {
         if (error) {
-            *error = [NSError errorWithDomain:YTKRequestValidationErrorDomain code:YTKRequestValidationErrorInvalidStatusCode userInfo:@{NSLocalizedDescriptionKey:@"Invalid status code"}];
+            *error = [NSError errorWithDomain:YTKRequestValidationErrorDomain code:VKRequestValidationErrorInvalidStatusCode userInfo:@{NSLocalizedDescriptionKey:@"Invalid status code"}];
         }
         return result;
     }
     id json = [request responseJSONObject];
     id validator = [request jsonValidator];
     if (json && validator) {
-        result = [YTKNetworkUtils validateJSON:json withValidator:validator];
+        result = [VKNetworkUtils validateJSON:json withValidator:validator];
         if (!result) {
             if (error) {
-                *error = [NSError errorWithDomain:YTKRequestValidationErrorDomain code:YTKRequestValidationErrorInvalidJSONFormat userInfo:@{NSLocalizedDescriptionKey:@"Invalid JSON format"}];
+                *error = [NSError errorWithDomain:YTKRequestValidationErrorDomain code:VKRequestValidationErrorInvalidJSONFormat userInfo:@{NSLocalizedDescriptionKey:@"Invalid JSON format"}];
             }
             return result;
         }
@@ -267,7 +267,7 @@
 
 - (void)handleRequestResult:(NSURLSessionTask *)task responseObject:(id)responseObject error:(NSError *)error {
     Lock();
-    YTKBaseRequest *request = _requestsRecord[@(task.taskIdentifier)];
+    VKBaseRequest *request = _requestsRecord[@(task.taskIdentifier)];
     Unlock();
 
     // When the request is cancelled and removed from records, the underlying
@@ -279,7 +279,7 @@
         return;
     }
 
-    YTKLog(@"Finished Request: %@", NSStringFromClass([request class]));
+    NSLog(@"Finished Request: %@", NSStringFromClass([request class]));
 
     NSError * __autoreleasing serializationError = nil;
     NSError * __autoreleasing validationError = nil;
@@ -290,17 +290,17 @@
     request.responseObject = responseObject;
     if ([request.responseObject isKindOfClass:[NSData class]]) {
         request.responseData = responseObject;
-        request.responseString = [[NSString alloc] initWithData:responseObject encoding:[YTKNetworkUtils stringEncodingWithRequest:request]];
+        request.responseString = [[NSString alloc] initWithData:responseObject encoding:[VKNetworkUtils stringEncodingWithRequest:request]];
 
         switch (request.responseSerializerType) {
-            case YTKResponseSerializerTypeHTTP:
+            case VKResponseSerializerTypeHTTP:
                 // Default serializer. Do nothing.
                 break;
-            case YTKResponseSerializerTypeJSON:
+            case VKResponseSerializerTypeJSON:
                 request.responseObject = [self.jsonResponseSerializer responseObjectForResponse:task.response data:request.responseData error:&serializationError];
                 request.responseJSONObject = request.responseObject;
                 break;
-            case YTKResponseSerializerTypeXMLParser:
+            case VKResponseSerializerTypeXMLParser:
                 request.responseObject = [self.xmlParserResponseSerialzier responseObjectForResponse:task.response data:request.responseData error:&serializationError];
                 break;
         }
@@ -328,7 +328,7 @@
     });
 }
 
-- (void)requestDidSucceedWithRequest:(YTKBaseRequest *)request {
+- (void)requestDidSucceedWithRequest:(VKBaseRequest *)request {
     @autoreleasepool {
         [request requestCompletePreprocessor];
     }
@@ -346,9 +346,9 @@
     });
 }
 
-- (void)requestDidFailWithRequest:(YTKBaseRequest *)request error:(NSError *)error {
+- (void)requestDidFailWithRequest:(VKBaseRequest *)request error:(NSError *)error {
     request.error = error;
-    YTKLog(@"Request %@ failed, status code = %ld, error = %@",
+    NSLog(@"Request %@ failed, status code = %ld, error = %@",
            NSStringFromClass([request class]), (long)request.responseStatusCode, error.localizedDescription);
 
     // Load response from file and clean up if download task failed.
@@ -356,7 +356,7 @@
         NSURL *url = request.responseObject;
         if (url.isFileURL && [[NSFileManager defaultManager] fileExistsAtPath:url.path]) {
             request.responseData = [NSData dataWithContentsOfURL:url];
-            request.responseString = [[NSString alloc] initWithData:request.responseData encoding:[YTKNetworkUtils stringEncodingWithRequest:request]];
+            request.responseString = [[NSString alloc] initWithData:request.responseData encoding:[VKNetworkUtils stringEncodingWithRequest:request]];
 
             [[NSFileManager defaultManager] removeItemAtURL:url error:nil];
         }
@@ -380,16 +380,16 @@
     });
 }
 
-- (void)addRequestToRecord:(YTKBaseRequest *)request {
+- (void)addRequestToRecord:(VKBaseRequest *)request {
     Lock();
     _requestsRecord[@(request.requestTask.taskIdentifier)] = request;
     Unlock();
 }
 
-- (void)removeRequestFromRecord:(YTKBaseRequest *)request {
+- (void)removeRequestFromRecord:(VKBaseRequest *)request {
     Lock();
     [_requestsRecord removeObjectForKey:@(request.requestTask.taskIdentifier)];
-    YTKLog(@"Request queue size = %zd", [_requestsRecord count]);
+    NSLog(@"Request queue size = %zd", [_requestsRecord count]);
     Unlock();
 }
 

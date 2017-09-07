@@ -7,7 +7,7 @@
 
 
 #import <CommonCrypto/CommonDigest.h>
-#import "YTKNetworkPrivate.h"
+#import "VKNetworkPrivate.h"
 
 #if __has_include(<AFNetworking/AFNetworking.h>)
 #import <AFNetworking/AFURLRequestSerialization.h>
@@ -17,7 +17,7 @@
 
 void YTKLog(NSString *format, ...) {
 #ifdef DEBUG
-    if (![YTKNetworkConfig sharedConfig].debugLogEnabled) {
+    if (![VKNetworkConfig sharedConfig].debugLogEnabled) {
         return;
     }
     va_list argptr;
@@ -27,7 +27,7 @@ void YTKLog(NSString *format, ...) {
 #endif
 }
 
-@implementation YTKNetworkUtils
+@implementation VKNetworkUtils
 
 + (BOOL)validateJSON:(id)json withValidator:(id)jsonValidator {
     if ([json isKindOfClass:[NSDictionary class]] &&
@@ -105,7 +105,7 @@ void YTKLog(NSString *format, ...) {
     return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
 }
 
-+ (NSStringEncoding)stringEncodingWithRequest:(YTKBaseRequest *)request {
++ (NSStringEncoding)stringEncodingWithRequest:(VKBaseRequest *)request {
     // From AFNetworking 2.6.3
     NSStringEncoding stringEncoding = NSUTF8StringEncoding;
     if (request.response.textEncodingName) {
@@ -140,10 +140,10 @@ void YTKLog(NSString *format, ...) {
 
 @end
 
-@implementation YTKBaseRequest (RequestAccessory)
+@implementation VKBaseRequest (RequestAccessory)
 
 - (void)toggleAccessoriesWillStartCallBack {
-    for (id<YTKRequestAccessory> accessory in self.requestAccessories) {
+    for (id<VKRequestAccessory> accessory in self.requestAccessories) {
         if ([accessory respondsToSelector:@selector(requestWillStart:)]) {
             [accessory requestWillStart:self];
         }
@@ -151,7 +151,7 @@ void YTKLog(NSString *format, ...) {
 }
 
 - (void)toggleAccessoriesWillStopCallBack {
-    for (id<YTKRequestAccessory> accessory in self.requestAccessories) {
+    for (id<VKRequestAccessory> accessory in self.requestAccessories) {
         if ([accessory respondsToSelector:@selector(requestWillStop:)]) {
             [accessory requestWillStop:self];
         }
@@ -159,7 +159,7 @@ void YTKLog(NSString *format, ...) {
 }
 
 - (void)toggleAccessoriesDidStopCallBack {
-    for (id<YTKRequestAccessory> accessory in self.requestAccessories) {
+    for (id<VKRequestAccessory> accessory in self.requestAccessories) {
         if ([accessory respondsToSelector:@selector(requestDidStop:)]) {
             [accessory requestDidStop:self];
         }

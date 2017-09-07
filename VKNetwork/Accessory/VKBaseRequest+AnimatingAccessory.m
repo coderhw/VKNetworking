@@ -3,15 +3,15 @@
 // Copyright (c) 2014 Fenbi. All rights reserved.
 //
 
-#import "YTKBaseRequest+AnimatingAccessory.h"
-#import "YTKAnimatingRequestAccessory.h"
+#import "VKBaseRequest+AnimatingAccessory.h"
+#import "VKAnimatingRequestAccessory.h"
 
 
-@implementation YTKBaseRequest (AnimatingAccessory)
+@implementation VKBaseRequest (AnimatingAccessory)
 
-- (YTKAnimatingRequestAccessory *)animatingRequestAccessory {
+- (VKAnimatingRequestAccessory *)animatingRequestAccessory {
     for (id accessory in self.requestAccessories) {
-        if ([accessory isKindOfClass:[YTKAnimatingRequestAccessory class]]){
+        if ([accessory isKindOfClass:[VKAnimatingRequestAccessory class]]){
             return accessory;
         }
     }
@@ -24,7 +24,7 @@
 
 - (void)setAnimatingView:(UIView *)animatingView {
     if (!self.animatingRequestAccessory) {
-        [self addAccessory:[YTKAnimatingRequestAccessory accessoryWithAnimatingView:animatingView animatingText:nil]];
+        [self addAccessory:[VKAnimatingRequestAccessory accessoryWithAnimatingView:animatingView animatingText:nil]];
     } else {
         self.animatingRequestAccessory.animatingView = animatingView;
     }
@@ -36,7 +36,7 @@
 
 - (void)setAnimatingText:(NSString *)animatingText {
     if (!self.animatingRequestAccessory) {
-        [self addAccessory:[YTKAnimatingRequestAccessory accessoryWithAnimatingView:nil animatingText:animatingText]];
+        [self addAccessory:[VKAnimatingRequestAccessory accessoryWithAnimatingView:nil animatingText:animatingText]];
     } else {
         self.animatingRequestAccessory.animatingText = animatingText;
     }

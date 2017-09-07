@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "YTKBaseRequest.h"
+#import "VKBaseRequest.h"
 
-@interface YTKAnimatingRequestAccessory : NSObject <YTKRequestAccessory>
+@interface VKAnimatingRequestAccessory : NSObject <VKRequestAccessory>
 
 @property(nonatomic, weak) UIView *animatingView;
 

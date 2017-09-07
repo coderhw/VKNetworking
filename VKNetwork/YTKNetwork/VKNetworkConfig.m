@@ -5,8 +5,8 @@
 //  Copyright © 2017年 Evan. All rights reserved.
 //
 
-#import "YTKNetworkConfig.h"
-#import "YTKBaseRequest.h"
+#import "VKNetworkConfig.h"
+#import "VKBaseRequest.h"
 
 #if __has_include(<AFNetworking/AFNetworking.h>)
 #import <AFNetworking/AFNetworking.h>
@@ -14,12 +14,12 @@
 #import "AFNetworking.h"
 #endif
 
-@implementation YTKNetworkConfig {
-    NSMutableArray<id<YTKUrlFilterProtocol>> *_urlFilters;
-    NSMutableArray<id<YTKCacheDirPathFilterProtocol>> *_cacheDirPathFilters;
+@implementation VKNetworkConfig {
+    NSMutableArray<id<VKUrlFilterProtocol>> *_urlFilters;
+    NSMutableArray<id<VKCacheDirPathFilterProtocol>> *_cacheDirPathFilters;
 }
 
-+ (YTKNetworkConfig *)sharedConfig {
++ (VKNetworkConfig *)sharedConfig {
     static id sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -41,7 +41,7 @@
     return self;
 }
 
-- (void)addUrlFilter:(id<YTKUrlFilterProtocol>)filter {
+- (void)addUrlFilter:(id<VKUrlFilterProtocol>)filter {
     [_urlFilters addObject:filter];
 }
 
@@ -49,7 +49,7 @@
     [_urlFilters removeAllObjects];
 }
 
-- (void)addCacheDirPathFilter:(id<YTKCacheDirPathFilterProtocol>)filter {
+- (void)addCacheDirPathFilter:(id<VKCacheDirPathFilterProtocol>)filter {
     [_cacheDirPathFilters addObject:filter];
 }
 
@@ -57,11 +57,11 @@
     [_cacheDirPathFilters removeAllObjects];
 }
 
-- (NSArray<id<YTKUrlFilterProtocol>> *)urlFilters {
+- (NSArray<id<VKUrlFilterProtocol>> *)urlFilters {
     return [_urlFilters copy];
 }
 
-- (NSArray<id<YTKCacheDirPathFilterProtocol>> *)cacheDirPathFilters {
+- (NSArray<id<VKCacheDirPathFilterProtocol>> *)cacheDirPathFilters {
     return [_cacheDirPathFilters copy];
 }
 

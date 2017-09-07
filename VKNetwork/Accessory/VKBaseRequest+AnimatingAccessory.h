@@ -5,9 +5,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "YTKBaseRequest.h"
+#import "VKBaseRequest.h"
 
-@interface YTKBaseRequest (AnimatingAccessory)
+@interface VKBaseRequest (AnimatingAccessory)
 
 @property (weak, nonatomic) UIView *animatingView;
 

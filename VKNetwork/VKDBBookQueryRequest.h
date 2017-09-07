@@ -6,9 +6,9 @@
 //  Copyright © 2017年 Evan. All rights reserved.
 //
 
-#import "YTKRequest.h"
+#import "VKRequest.h"
 
-@interface VKDBBookQueryRequest : YTKRequest
+@interface VKDBBookQueryRequest : VKRequest
 
 
 
