@@ -80,7 +80,7 @@
 			path = Accessory;
 			sourceTree = "<group>";
 		};
-		641505681F5FE5CC00D5EB20 /* YTKNetwork */ = {
+		641505681F5FE5CC00D5EB20 /* VKNetwork */ = {
 			isa = PBXGroup;
 			children = (
 				641505731F5FE5CC00D5EB20 /* VKNetwork.h */,
@@ -95,7 +95,7 @@
 				641505781F5FE5CC00D5EB20 /* VKNetworkPrivate.h */,
 				641505791F5FE5CC00D5EB20 /* VKNetworkPrivate.m */,
 			);
-			path = YTKNetwork;
+			path = VKNetwork;
 			sourceTree = "<group>";
 		};
 		6489EB0F1F57FAF400B79C14 = {
@@ -122,7 +122,7 @@
 				6489EB1E1F57FAF400B79C14 /* AppDelegate.h */,
 				6489EB1F1F57FAF400B79C14 /* AppDelegate.m */,
 				640525FF1F5FFBF400223BF5 /* Accessory */,
-				641505681F5FE5CC00D5EB20 /* YTKNetwork */,
+				641505681F5FE5CC00D5EB20 /* VKNetwork */,
 				6489EB211F57FAF400B79C14 /* ViewController.h */,
 				6489EB221F57FAF400B79C14 /* ViewController.m */,
 				641505851F5FE70200D5EB20 /* VKDBBookQueryRequest.h */,
