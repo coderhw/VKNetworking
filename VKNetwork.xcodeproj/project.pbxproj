@@ -1,0 +1,463 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		49645EC9C91D0F1F2D31FA78 /* libPods-VKNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7DCFE279AF6FC9170F922C /* libPods-VKNetwork.a */; };
+		640526081F5FFBF400223BF5 /* YTKAnimatingRequestAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 640526011F5FFBF400223BF5 /* YTKAnimatingRequestAccessory.m */; };
+		640526091F5FFBF400223BF5 /* YTKBaseRequest+AnimatingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 640526031F5FFBF400223BF5 /* YTKBaseRequest+AnimatingAccessory.m */; };
+		6415057C1F5FE5CC00D5EB20 /* YTKBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6415056A1F5FE5CC00D5EB20 /* YTKBaseRequest.m */; };
+		641505811F5FE5CC00D5EB20 /* YTKNetworkAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 641505751F5FE5CC00D5EB20 /* YTKNetworkAgent.m */; };
+		641505821F5FE5CC00D5EB20 /* YTKNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 641505771F5FE5CC00D5EB20 /* YTKNetworkConfig.m */; };
+		641505831F5FE5CC00D5EB20 /* YTKNetworkPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 641505791F5FE5CC00D5EB20 /* YTKNetworkPrivate.m */; };
+		641505841F5FE5CC00D5EB20 /* YTKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6415057B1F5FE5CC00D5EB20 /* YTKRequest.m */; };
+		641505871F5FE70200D5EB20 /* VKDBBookQueryRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 641505861F5FE70200D5EB20 /* VKDBBookQueryRequest.m */; };
+		6489EB1D1F57FAF400B79C14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6489EB1C1F57FAF400B79C14 /* main.m */; };
+		6489EB201F57FAF400B79C14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6489EB1F1F57FAF400B79C14 /* AppDelegate.m */; };
+		6489EB231F57FAF400B79C14 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6489EB221F57FAF400B79C14 /* ViewController.m */; };
+		6489EB261F57FAF400B79C14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6489EB241F57FAF400B79C14 /* Main.storyboard */; };
+		6489EB281F57FAF400B79C14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6489EB271F57FAF400B79C14 /* Assets.xcassets */; };
+		6489EB2B1F57FAF400B79C14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6489EB291F57FAF400B79C14 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3EC351BBEE34EC38D491EFD3 /* Pods-VKNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKNetwork/Pods-VKNetwork.debug.xcconfig"; sourceTree = "<group>"; };
+		640526001F5FFBF400223BF5 /* YTKAnimatingRequestAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKAnimatingRequestAccessory.h; sourceTree = "<group>"; };
+		640526011F5FFBF400223BF5 /* YTKAnimatingRequestAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKAnimatingRequestAccessory.m; sourceTree = "<group>"; };
+		640526021F5FFBF400223BF5 /* YTKBaseRequest+AnimatingAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YTKBaseRequest+AnimatingAccessory.h"; sourceTree = "<group>"; };
+		640526031F5FFBF400223BF5 /* YTKBaseRequest+AnimatingAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YTKBaseRequest+AnimatingAccessory.m"; sourceTree = "<group>"; };
+		641505691F5FE5CC00D5EB20 /* YTKBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKBaseRequest.h; sourceTree = "<group>"; };
+		6415056A1F5FE5CC00D5EB20 /* YTKBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKBaseRequest.m; sourceTree = "<group>"; };
+		641505731F5FE5CC00D5EB20 /* YTKNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetwork.h; sourceTree = "<group>"; };
+		641505741F5FE5CC00D5EB20 /* YTKNetworkAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetworkAgent.h; sourceTree = "<group>"; };
+		641505751F5FE5CC00D5EB20 /* YTKNetworkAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKNetworkAgent.m; sourceTree = "<group>"; };
+		641505761F5FE5CC00D5EB20 /* YTKNetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetworkConfig.h; sourceTree = "<group>"; };
+		641505771F5FE5CC00D5EB20 /* YTKNetworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKNetworkConfig.m; sourceTree = "<group>"; };
+		641505781F5FE5CC00D5EB20 /* YTKNetworkPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetworkPrivate.h; sourceTree = "<group>"; };
+		641505791F5FE5CC00D5EB20 /* YTKNetworkPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKNetworkPrivate.m; sourceTree = "<group>"; };
+		6415057A1F5FE5CC00D5EB20 /* YTKRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKRequest.h; sourceTree = "<group>"; };
+		6415057B1F5FE5CC00D5EB20 /* YTKRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKRequest.m; sourceTree = "<group>"; };
+		641505851F5FE70200D5EB20 /* VKDBBookQueryRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKDBBookQueryRequest.h; sourceTree = "<group>"; };
+		641505861F5FE70200D5EB20 /* VKDBBookQueryRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKDBBookQueryRequest.m; sourceTree = "<group>"; };
+		6489EB181F57FAF400B79C14 /* VKNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6489EB1C1F57FAF400B79C14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6489EB1E1F57FAF400B79C14 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6489EB1F1F57FAF400B79C14 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6489EB211F57FAF400B79C14 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6489EB221F57FAF400B79C14 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6489EB251F57FAF400B79C14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6489EB271F57FAF400B79C14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6489EB2A1F57FAF400B79C14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6489EB2C1F57FAF400B79C14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E259458030B96225BE484DC7 /* Pods-VKNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKNetwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKNetwork/Pods-VKNetwork.release.xcconfig"; sourceTree = "<group>"; };
+		EC7DCFE279AF6FC9170F922C /* libPods-VKNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VKNetwork.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6489EB151F57FAF400B79C14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49645EC9C91D0F1F2D31FA78 /* libPods-VKNetwork.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		640525FF1F5FFBF400223BF5 /* Accessory */ = {
+			isa = PBXGroup;
+			children = (
+				640526001F5FFBF400223BF5 /* YTKAnimatingRequestAccessory.h */,
+				640526011F5FFBF400223BF5 /* YTKAnimatingRequestAccessory.m */,
+				640526021F5FFBF400223BF5 /* YTKBaseRequest+AnimatingAccessory.h */,
+				640526031F5FFBF400223BF5 /* YTKBaseRequest+AnimatingAccessory.m */,
+			);
+			path = Accessory;
+			sourceTree = "<group>";
+		};
+		641505681F5FE5CC00D5EB20 /* YTKNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				641505731F5FE5CC00D5EB20 /* YTKNetwork.h */,
+				641505691F5FE5CC00D5EB20 /* YTKBaseRequest.h */,
+				6415056A1F5FE5CC00D5EB20 /* YTKBaseRequest.m */,
+				641505741F5FE5CC00D5EB20 /* YTKNetworkAgent.h */,
+				641505751F5FE5CC00D5EB20 /* YTKNetworkAgent.m */,
+				641505761F5FE5CC00D5EB20 /* YTKNetworkConfig.h */,
+				641505771F5FE5CC00D5EB20 /* YTKNetworkConfig.m */,
+				641505781F5FE5CC00D5EB20 /* YTKNetworkPrivate.h */,
+				641505791F5FE5CC00D5EB20 /* YTKNetworkPrivate.m */,
+				6415057A1F5FE5CC00D5EB20 /* YTKRequest.h */,
+				6415057B1F5FE5CC00D5EB20 /* YTKRequest.m */,
+			);
+			path = YTKNetwork;
+			sourceTree = "<group>";
+		};
+		6489EB0F1F57FAF400B79C14 = {
+			isa = PBXGroup;
+			children = (
+				6489EB1A1F57FAF400B79C14 /* VKNetwork */,
+				6489EB191F57FAF400B79C14 /* Products */,
+				B5B6C08277ED393208DA7D7F /* Pods */,
+				C134930C3AD56794AC4F8858 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6489EB191F57FAF400B79C14 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6489EB181F57FAF400B79C14 /* VKNetwork.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6489EB1A1F57FAF400B79C14 /* VKNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				6489EB1E1F57FAF400B79C14 /* AppDelegate.h */,
+				6489EB1F1F57FAF400B79C14 /* AppDelegate.m */,
+				640525FF1F5FFBF400223BF5 /* Accessory */,
+				641505681F5FE5CC00D5EB20 /* YTKNetwork */,
+				6489EB211F57FAF400B79C14 /* ViewController.h */,
+				6489EB221F57FAF400B79C14 /* ViewController.m */,
+				641505851F5FE70200D5EB20 /* VKDBBookQueryRequest.h */,
+				641505861F5FE70200D5EB20 /* VKDBBookQueryRequest.m */,
+				6489EB241F57FAF400B79C14 /* Main.storyboard */,
+				6489EB1B1F57FAF400B79C14 /* Supporting Files */,
+			);
+			path = VKNetwork;
+			sourceTree = "<group>";
+		};
+		6489EB1B1F57FAF400B79C14 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6489EB271F57FAF400B79C14 /* Assets.xcassets */,
+				6489EB291F57FAF400B79C14 /* LaunchScreen.storyboard */,
+				6489EB2C1F57FAF400B79C14 /* Info.plist */,
+				6489EB1C1F57FAF400B79C14 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B5B6C08277ED393208DA7D7F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3EC351BBEE34EC38D491EFD3 /* Pods-VKNetwork.debug.xcconfig */,
+				E259458030B96225BE484DC7 /* Pods-VKNetwork.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C134930C3AD56794AC4F8858 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC7DCFE279AF6FC9170F922C /* libPods-VKNetwork.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6489EB171F57FAF400B79C14 /* VKNetwork */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6489EB2F1F57FAF400B79C14 /* Build configuration list for PBXNativeTarget "VKNetwork" */;
+			buildPhases = (
+				32208853221423CF30FE803F /* [CP] Check Pods Manifest.lock */,
+				6489EB141F57FAF400B79C14 /* Sources */,
+				6489EB151F57FAF400B79C14 /* Frameworks */,
+				6489EB161F57FAF400B79C14 /* Resources */,
+				63D1DEDEC56ABE485EA8CD19 /* [CP] Embed Pods Frameworks */,
+				52A18B9DEC5BE48D2DF7ECDF /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VKNetwork;
+			productName = VKNetwork;
+			productReference = 6489EB181F57FAF400B79C14 /* VKNetwork.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6489EB101F57FAF400B79C14 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Evan;
+				TargetAttributes = {
+					6489EB171F57FAF400B79C14 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = Z29237TAHW;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6489EB131F57FAF400B79C14 /* Build configuration list for PBXProject "VKNetwork" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6489EB0F1F57FAF400B79C14;
+			productRefGroup = 6489EB191F57FAF400B79C14 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6489EB171F57FAF400B79C14 /* VKNetwork */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6489EB161F57FAF400B79C14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6489EB2B1F57FAF400B79C14 /* LaunchScreen.storyboard in Resources */,
+				6489EB281F57FAF400B79C14 /* Assets.xcassets in Resources */,
+				6489EB261F57FAF400B79C14 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		32208853221423CF30FE803F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		52A18B9DEC5BE48D2DF7ECDF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKNetwork/Pods-VKNetwork-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		63D1DEDEC56ABE485EA8CD19 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKNetwork/Pods-VKNetwork-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6489EB141F57FAF400B79C14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				641505811F5FE5CC00D5EB20 /* YTKNetworkAgent.m in Sources */,
+				6489EB231F57FAF400B79C14 /* ViewController.m in Sources */,
+				6489EB201F57FAF400B79C14 /* AppDelegate.m in Sources */,
+				641505841F5FE5CC00D5EB20 /* YTKRequest.m in Sources */,
+				641505831F5FE5CC00D5EB20 /* YTKNetworkPrivate.m in Sources */,
+				6489EB1D1F57FAF400B79C14 /* main.m in Sources */,
+				640526091F5FFBF400223BF5 /* YTKBaseRequest+AnimatingAccessory.m in Sources */,
+				640526081F5FFBF400223BF5 /* YTKAnimatingRequestAccessory.m in Sources */,
+				641505871F5FE70200D5EB20 /* VKDBBookQueryRequest.m in Sources */,
+				641505821F5FE5CC00D5EB20 /* YTKNetworkConfig.m in Sources */,
+				6415057C1F5FE5CC00D5EB20 /* YTKBaseRequest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6489EB241F57FAF400B79C14 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6489EB251F57FAF400B79C14 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6489EB291F57FAF400B79C14 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6489EB2A1F57FAF400B79C14 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6489EB2D1F57FAF400B79C14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6489EB2E1F57FAF400B79C14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6489EB301F57FAF400B79C14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EC351BBEE34EC38D491EFD3 /* Pods-VKNetwork.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Z29237TAHW;
+				INFOPLIST_FILE = VKNetwork/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vanke.VKNetwork;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6489EB311F57FAF400B79C14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E259458030B96225BE484DC7 /* Pods-VKNetwork.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Z29237TAHW;
+				INFOPLIST_FILE = VKNetwork/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vanke.VKNetwork;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6489EB131F57FAF400B79C14 /* Build configuration list for PBXProject "VKNetwork" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6489EB2D1F57FAF400B79C14 /* Debug */,
+				6489EB2E1F57FAF400B79C14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6489EB2F1F57FAF400B79C14 /* Build configuration list for PBXNativeTarget "VKNetwork" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6489EB301F57FAF400B79C14 /* Debug */,
+				6489EB311F57FAF400B79C14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6489EB101F57FAF400B79C14 /* Project object */;
+}
