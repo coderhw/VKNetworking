@@ -1,5 +1,5 @@
 //
-//  YTKNetworkAgent.h
+//  VKNetworkAgent.h
 //
 //  Created by vanke on 2017/8/31.
 //  Copyright © 2017年 Evan. All rights reserved.
@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class VKBaseRequest;
 
-///  YTKNetworkAgent is the underlying class that handles actual request generation,
+///  VKNetworkAgent is the underlying class that handles actual request generation,
 ///  serialization and response handling.
 @interface VKNetworkAgent : NSObject
 

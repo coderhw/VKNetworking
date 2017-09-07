@@ -1,5 +1,5 @@
 //
-//  YTKNetworkConfig.h
+//  VKNetworkConfig.h
 //
 //  Created by vanke on 2017/8/31.
 //  Copyright © 2017年 Evan. All rights reserved.
@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class VKBaseRequest;
 @class AFSecurityPolicy;
 
-///  YTKUrlFilterProtocol can be used to append common parameters to requests before sending them.
+///  VKUrlFilterProtocol can be used to append common parameters to requests before sending them.
 @protocol VKUrlFilterProtocol <NSObject>
 ///  Preprocess request URL before actually sending them.
 ///
@@ -28,14 +28,14 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol VKCacheDirPathFilterProtocol <NSObject>
 ///  Preprocess cache path before actually saving them.
 ///
-///  @param originPath original base cache path, which is generated in `YTKRequest` class.
+///  @param originPath original base cache path, which is generated in `VKRequest` class.
 ///  @param request    request itself
 ///
 ///  @return A new path which will be used as base path when caching.
 - (NSString *)filterCacheDirPath:(NSString *)originPath withRequest:(VKBaseRequest *)request;
 @end
 
-///  YTKNetworkConfig stored global network-related configurations, which will be used in `YTKNetworkAgent`
+///  VKNetworkConfig stored global network-related configurations, which will be used in `VKNetworkAgent`
 ///  to form and filter requests, as well as caching response.
 @interface VKNetworkConfig : NSObject
 

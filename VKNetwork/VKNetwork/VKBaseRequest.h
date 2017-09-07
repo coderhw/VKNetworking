@@ -1,5 +1,5 @@
 //
-//  YTKBaseRequest.h
+//  VKBaseRequest.h
 //
 //  Created by vanke on 2017/8/31.
 //  Copyright © 2017年 Evan. All rights reserved.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-FOUNDATION_EXPORT NSString *const YTKRequestValidationErrorDomain;
+FOUNDATION_EXPORT NSString *const VKRequestValidationErrorDomain;
 
 NS_ENUM(NSInteger) {
     VKRequestValidationErrorInvalidStatusCode = -8,
@@ -17,7 +17,7 @@ NS_ENUM(NSInteger) {
 };
 
 ///  HTTP请求方法
-typedef NS_ENUM(NSInteger, YTKRequestMethod) {
+typedef NS_ENUM(NSInteger, VKRequestMethod) {
     VKRequestMethodGET = 0,
     VKRequestMethodPOST,
     VKRequestMethodHEAD,
@@ -27,13 +27,13 @@ typedef NS_ENUM(NSInteger, YTKRequestMethod) {
 };
 
 ///  Request serializer type.
-typedef NS_ENUM(NSInteger, YTKRequestSerializerType) {
+typedef NS_ENUM(NSInteger, VKRequestSerializerType) {
     VKRequestSerializerTypeHTTP = 0,
     VKRequestSerializerTypeJSON,
 };
 
 ///  响应部分序列化类型。通过它决定了response serialization process 和 responseObject
-typedef NS_ENUM(NSInteger, YTKResponseSerializerType) {
+typedef NS_ENUM(NSInteger, VKResponseSerializerType) {
     /// NSData type
     VKResponseSerializerTypeHTTP,
     /// JSON object type
@@ -43,7 +43,7 @@ typedef NS_ENUM(NSInteger, YTKResponseSerializerType) {
 };
 
 ///  请求优先级
-typedef NS_ENUM(NSInteger, YTKRequestPriority) {
+typedef NS_ENUM(NSInteger, VKRequestPriority) {
     VKRequestPriorityLow = -4L,
     VKRequestPriorityDefault = 0,
     VKRequestPriorityHigh = 4,
@@ -56,11 +56,11 @@ typedef void (^AFURLSessionTaskProgressBlock)(NSProgress *);
 
 @class VKBaseRequest;
 
-typedef void(^YTKRequestCompletionBlock)(__kindof VKBaseRequest *request);
+typedef void(^VKRequestCompletionBlock)(__kindof VKBaseRequest *request);
 
-/// YTKRequestDelegate 定义了一些可选择的方法，通过这些方法可以接收到网络相关的消息。
+/// VKRequestDelegate 定义了一些可选择的方法，通过这些方法可以接收到网络相关的消息。
 /// 所有的这些方法都会在主线程中调用。
-@protocol YTKRequestDelegate <NSObject>
+@protocol VKRequestDelegate <NSObject>
 
 @optional
 ///  代理方法:请求成功结束
@@ -97,7 +97,7 @@ typedef void(^YTKRequestCompletionBlock)(__kindof VKBaseRequest *request);
 
 @end
 
-///  YTKBaseRequest 是网络请求的一个抽象类，它为创建新的请求提供了一些属性。 并且它是YTKRequest的基类。
+///  VKBaseRequest 是网络请求的一个抽象类，它为创建新的请求提供了一些属性。 并且它是VKRequest的基类。
 @interface VKBaseRequest : NSObject
 
 #pragma mark - Request and Response Information
@@ -127,11 +127,11 @@ typedef void(^YTKRequestCompletionBlock)(__kindof VKBaseRequest *request);
 @property (nonatomic, strong, readonly, nullable) NSString *responseString;
 
 ///
-///  @discussion 这是已经序列化的对象，具体类型取决于YTKResponseSerializerType，注意:如果请求失败可能为nil
+///  @discussion 这是已经序列化的对象，具体类型取决于VKResponseSerializerType，注意:如果请求失败可能为nil
 ///  如果使用了 `resumableDownloadPath` and DownloadTask, 则是文件存放的路径(NSURL)
 @property (nonatomic, strong, readonly, nullable) id responseObject;
 
-/// 如果你用了YTKResponseSerializerTypeJSON，那么通过它可以方便的获取到response object，如果不是则为nil
+/// 如果你用了VKResponseSerializerTypeJSON，那么通过它可以方便的获取到response object，如果不是则为nil
 @property (nonatomic, strong, readonly, nullable) id responseJSONObject;
 
 /// serialization error 或者 网络错误，如果没有错误则为nil
@@ -157,15 +157,15 @@ typedef void(^YTKRequestCompletionBlock)(__kindof VKBaseRequest *request);
 @property (nonatomic, strong, nullable) NSDictionary *userInfo;
 
 ///  请求的代理，如果选择通过block方式，请忽略！
-@property (nonatomic, weak, nullable) id<YTKRequestDelegate> delegate;
+@property (nonatomic, weak, nullable) id<VKRequestDelegate> delegate;
 
 ///  成功的回调。 注意:如果successCompletionBlock不为nil, 那么一定实现了requestFinished的代理方法。两者都会执行, 但是代理的方法先执行。
 ///  该block将会在主线程中调用
-@property (nonatomic, copy, nullable) YTKRequestCompletionBlock successCompletionBlock;
+@property (nonatomic, copy, nullable) VKRequestCompletionBlock successCompletionBlock;
 
 ///  失败的回调。 注意:如果successCompletionBlock不为nil, 那么一定实现了requestFailed的代理方法。两者都会执行, 但是代理的方法先执行。
 ///  该block将会在主线程中调用
-@property (nonatomic, copy, nullable) YTKRequestCompletionBlock failureCompletionBlock;
+@property (nonatomic, copy, nullable) VKRequestCompletionBlock failureCompletionBlock;
 
 ///  用于添加accossories object, 注意:如果通过addAccessory来添加acceesory, 该数组则会自动被创建出来, 默认为nil.
 @property (nonatomic, strong, nullable) NSMutableArray<id<VKRequestAccessory>> *requestAccessories;
@@ -176,12 +176,12 @@ typedef void(^YTKRequestCompletionBlock)(__kindof VKBaseRequest *request);
 ///  You can use this block to track the download progress. See also `resumableDownloadPath`.
 @property (nonatomic, copy, nullable) AFURLSessionTaskProgressBlock resumableDownloadProgressBlock;
 
-///  请求优先级 默认`YTKRequestPriorityDefault`.
-@property (nonatomic) YTKRequestPriority requestPriority;
+///  请求优先级 默认`VKRequestPriorityDefault`.
+@property (nonatomic) VKRequestPriority requestPriority;
 
 ///  设置请求完成回调
-- (void)setCompletionBlockWithSuccess:(nullable YTKRequestCompletionBlock)success
-                              failure:(nullable YTKRequestCompletionBlock)failure;
+- (void)setCompletionBlockWithSuccess:(nullable VKRequestCompletionBlock)success
+                              failure:(nullable VKRequestCompletionBlock)failure;
 
 ///  清理 成功和失败的block
 - (void)clearCompletionBlock;
@@ -202,8 +202,8 @@ typedef void(^YTKRequestCompletionBlock)(__kindof VKBaseRequest *request);
 - (void)stop;
 
 /// 通过此方法快速发起请求，并通过block获取回调数据。
-- (void)startWithCompletionBlockWithSuccess:(nullable YTKRequestCompletionBlock)success
-                                    failure:(nullable YTKRequestCompletionBlock)failure;
+- (void)startWithCompletionBlockWithSuccess:(nullable VKRequestCompletionBlock)success
+                                    failure:(nullable VKRequestCompletionBlock)failure;
 
 
 #pragma mark - Subclass Override
@@ -244,13 +244,13 @@ typedef void(^YTKRequestCompletionBlock)(__kindof VKBaseRequest *request);
 - (id)cacheFileNameFilterForRequestArgument:(id)argument;
 
 ///  Http请求的方法
-- (YTKRequestMethod)requestMethod;
+- (VKRequestMethod)requestMethod;
 
 /// 请求的SerializerType
-- (YTKRequestSerializerType)requestSerializerType;
+- (VKRequestSerializerType)requestSerializerType;
 
 ///  响应的SerializerType
-- (YTKResponseSerializerType)responseSerializerType;
+- (VKResponseSerializerType)responseSerializerType;
 
 /// 请求的Server用户名和密码 Should be formed as @[@"Username", @"Password"].
 - (nullable NSArray<NSString *> *)requestAuthorizationHeaderFieldArray;

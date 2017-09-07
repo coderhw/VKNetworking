@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "VKDBBookQueryRequest.h"
-#import "VKBaseRequest+AnimatingAccessory.h"
+
 
 
 @interface ViewController ()
@@ -26,12 +26,9 @@
 - (IBAction)getApiRequest:(id)sender {
     
     VKDBBookQueryRequest *dbQueryRequest = [[VKDBBookQueryRequest alloc] init];
-    dbQueryRequest.animatingText = @"正在加载";
-    dbQueryRequest.animatingView = self.view;
-    
     [dbQueryRequest startWithCompletionBlockWithSuccess:^(__kindof VKBaseRequest * _Nonnull request) {
         
-        NSLog(@"request:%@", request.responseString);
+        NSLog(@"request:%@", request.responseJSONObject);
     } failure:^(__kindof VKBaseRequest * _Nonnull request) {
         
     }];

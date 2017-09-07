@@ -6,7 +6,7 @@
 //  Copyright © 2017年 Evan. All rights reserved.
 //
 
-#import "VKRequest.h"
+#import "VKNetwork.h"
 
 @interface VKDBBookQueryRequest : VKRequest
 

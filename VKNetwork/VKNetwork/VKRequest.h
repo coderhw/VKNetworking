@@ -1,5 +1,5 @@
 //
-//  YTKRequest.h
+//  VKRequest.h
 //
 //  Created by vanke on 2017/8/31.
 //  Copyright © 2017年 Evan. All rights reserved.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-FOUNDATION_EXPORT NSString *const YTKRequestCacheErrorDomain;
+FOUNDATION_EXPORT NSString *const VKRequestCacheErrorDomain;
 
 NS_ENUM(NSInteger) {
     VKRequestCacheErrorExpired = -1,
@@ -22,11 +22,11 @@ NS_ENUM(NSInteger) {
     VKRequestCacheErrorInvalidCacheData = -7,
 };
 
-///  YTKRequest is the base class you should inherit to create your own request class.
-///  Based on YTKBaseRequest, YTKRequest adds local caching feature. Note download
+///  VKRequest is the base class you should inherit to create your own request class.
+///  Based on VKBaseRequest, VKRequest adds local caching feature. Note download
 ///  request will not be cached whatsoever, because download request may involve complicated
 ///  cache control policy controlled by `Cache-Control`, `Last-Modified`, etc.
-/// YTKRequest
+/// VKRequest
 @interface VKRequest : VKBaseRequest
 
 ///  是否使用缓存

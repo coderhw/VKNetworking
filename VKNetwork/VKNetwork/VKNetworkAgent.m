@@ -1,5 +1,5 @@
 //
-//  YTKNetworkAgent.m
+//  VKNetworkAgent.m
 //
 //  Created by vanke on 2017/8/31.
 //  Copyright © 2017年 Evan. All rights reserved.
@@ -20,7 +20,7 @@
 #define Lock() pthread_mutex_lock(&_lock)
 #define Unlock() pthread_mutex_unlock(&_lock)
 
-#define kYTKNetworkIncompleteDownloadFolderName @"Incomplete"
+#define kVKNetworkIncompleteDownloadFolderName @"Incomplete"
 
 @implementation VKNetworkAgent {
     AFHTTPSessionManager *_manager;
@@ -150,7 +150,7 @@
 }
 
 - (NSURLSessionTask *)sessionTaskForRequest:(VKBaseRequest *)request error:(NSError * _Nullable __autoreleasing *)error {
-    YTKRequestMethod method = [request requestMethod];
+    VKRequestMethod method = [request requestMethod];
     NSString *url = [self buildRequestUrl:request];
     id param = request.requestArgument;
     AFConstructingBlock constructingBlock = [request constructingBodyBlock];
@@ -213,7 +213,7 @@
     }
 
     // Retain request
-    NSLog(@"Add request: %@", NSStringFromClass([request class]));
+    //NSLog(@"Add request: %@", NSStringFromClass([request class]));
     [self addRequestToRecord:request];
     [request.requestTask resume];
 }
@@ -247,7 +247,7 @@
     BOOL result = [request statusCodeValidator];
     if (!result) {
         if (error) {
-            *error = [NSError errorWithDomain:YTKRequestValidationErrorDomain code:VKRequestValidationErrorInvalidStatusCode userInfo:@{NSLocalizedDescriptionKey:@"Invalid status code"}];
+            *error = [NSError errorWithDomain:VKRequestValidationErrorDomain code:VKRequestValidationErrorInvalidStatusCode userInfo:@{NSLocalizedDescriptionKey:@"Invalid status code"}];
         }
         return result;
     }
@@ -257,7 +257,7 @@
         result = [VKNetworkUtils validateJSON:json withValidator:validator];
         if (!result) {
             if (error) {
-                *error = [NSError errorWithDomain:YTKRequestValidationErrorDomain code:VKRequestValidationErrorInvalidJSONFormat userInfo:@{NSLocalizedDescriptionKey:@"Invalid JSON format"}];
+                *error = [NSError errorWithDomain:VKRequestValidationErrorDomain code:VKRequestValidationErrorInvalidJSONFormat userInfo:@{NSLocalizedDescriptionKey:@"Invalid JSON format"}];
             }
             return result;
         }

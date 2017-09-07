@@ -1,5 +1,5 @@
 //
-//  YTKNetworkPrivate.h
+//  VKNetworkPrivate.h
 //
 //  Created by vanke on 2017/8/31.
 //  Copyright © 2017年 Evan. All rights reserved.
@@ -9,14 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "VKRequest.h"
 #import "VKBaseRequest.h"
-//#import "YTKBatchRequest.h"
-//#import "YTKChainRequest.h"
+//#import "VKBatchRequest.h"
+//#import "VKChainRequest.h"
 #import "VKNetworkAgent.h"
 #import "VKNetworkConfig.h"
 
+
+
+
 NS_ASSUME_NONNULL_BEGIN
 
-//FOUNDATION_EXPORT void YTKLog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
 
 @class AFHTTPSessionManager;
 

@@ -1,5 +1,5 @@
 //
-//  YTKNetworkPrivate.m
+//  VKNetworkPrivate.m
 //
 //  Created by vanke on 2017/8/31.
 //  Copyright © 2017年 Evan. All rights reserved.
@@ -15,7 +15,7 @@
 #import "AFURLRequestSerialization.h"
 #endif
 
-void YTKLog(NSString *format, ...) {
+void VKLog(NSString *format, ...) {
 #ifdef DEBUG
     if (![VKNetworkConfig sharedConfig].debugLogEnabled) {
         return;
@@ -81,7 +81,7 @@ void YTKLog(NSString *format, ...) {
     NSError *error = nil;
     [url setResourceValue:[NSNumber numberWithBool:YES] forKey:NSURLIsExcludedFromBackupKey error:&error];
     if (error) {
-        YTKLog(@"error to set do not backup attribute, error = %@", error);
+        NSLog(@"error to set do not backup attribute, error = %@", error);
     }
 }
 

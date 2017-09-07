@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		49645EC9C91D0F1F2D31FA78 /* libPods-VKNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7DCFE279AF6FC9170F922C /* libPods-VKNetwork.a */; };
-		640526081F5FFBF400223BF5 /* VKAnimatingRequestAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 640526011F5FFBF400223BF5 /* VKAnimatingRequestAccessory.m */; };
-		640526091F5FFBF400223BF5 /* VKBaseRequest+AnimatingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 640526031F5FFBF400223BF5 /* VKBaseRequest+AnimatingAccessory.m */; };
 		6415057C1F5FE5CC00D5EB20 /* VKBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6415056A1F5FE5CC00D5EB20 /* VKBaseRequest.m */; };
 		641505811F5FE5CC00D5EB20 /* VKNetworkAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 641505751F5FE5CC00D5EB20 /* VKNetworkAgent.m */; };
 		641505821F5FE5CC00D5EB20 /* VKNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 641505771F5FE5CC00D5EB20 /* VKNetworkConfig.m */; };
@@ -26,10 +24,6 @@
 
 /* Begin PBXFileReference section */
 		3EC351BBEE34EC38D491EFD3 /* Pods-VKNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKNetwork/Pods-VKNetwork.debug.xcconfig"; sourceTree = "<group>"; };
-		640526001F5FFBF400223BF5 /* VKAnimatingRequestAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKAnimatingRequestAccessory.h; sourceTree = "<group>"; };
-		640526011F5FFBF400223BF5 /* VKAnimatingRequestAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKAnimatingRequestAccessory.m; sourceTree = "<group>"; };
-		640526021F5FFBF400223BF5 /* VKBaseRequest+AnimatingAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VKBaseRequest+AnimatingAccessory.h"; sourceTree = "<group>"; };
-		640526031F5FFBF400223BF5 /* VKBaseRequest+AnimatingAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VKBaseRequest+AnimatingAccessory.m"; sourceTree = "<group>"; };
 		641505691F5FE5CC00D5EB20 /* VKBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKBaseRequest.h; sourceTree = "<group>"; };
 		6415056A1F5FE5CC00D5EB20 /* VKBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKBaseRequest.m; sourceTree = "<group>"; };
 		641505731F5FE5CC00D5EB20 /* VKNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKNetwork.h; sourceTree = "<group>"; };
@@ -69,17 +63,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		640525FF1F5FFBF400223BF5 /* Accessory */ = {
-			isa = PBXGroup;
-			children = (
-				640526001F5FFBF400223BF5 /* VKAnimatingRequestAccessory.h */,
-				640526011F5FFBF400223BF5 /* VKAnimatingRequestAccessory.m */,
-				640526021F5FFBF400223BF5 /* VKBaseRequest+AnimatingAccessory.h */,
-				640526031F5FFBF400223BF5 /* VKBaseRequest+AnimatingAccessory.m */,
-			);
-			path = Accessory;
-			sourceTree = "<group>";
-		};
 		641505681F5FE5CC00D5EB20 /* VKNetwork */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,7 +104,6 @@
 			children = (
 				6489EB1E1F57FAF400B79C14 /* AppDelegate.h */,
 				6489EB1F1F57FAF400B79C14 /* AppDelegate.m */,
-				640525FF1F5FFBF400223BF5 /* Accessory */,
 				641505681F5FE5CC00D5EB20 /* VKNetwork */,
 				6489EB211F57FAF400B79C14 /* ViewController.h */,
 				6489EB221F57FAF400B79C14 /* ViewController.m */,
@@ -290,8 +272,6 @@
 				641505841F5FE5CC00D5EB20 /* VKRequest.m in Sources */,
 				641505831F5FE5CC00D5EB20 /* VKNetworkPrivate.m in Sources */,
 				6489EB1D1F57FAF400B79C14 /* main.m in Sources */,
-				640526091F5FFBF400223BF5 /* VKBaseRequest+AnimatingAccessory.m in Sources */,
-				640526081F5FFBF400223BF5 /* VKAnimatingRequestAccessory.m in Sources */,
 				641505871F5FE70200D5EB20 /* VKDBBookQueryRequest.m in Sources */,
 				641505821F5FE5CC00D5EB20 /* VKNetworkConfig.m in Sources */,
 				6415057C1F5FE5CC00D5EB20 /* VKBaseRequest.m in Sources */,

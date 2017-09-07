@@ -8,10 +8,10 @@
     FOUNDATION_EXPORT double VKNetworkVersionNumber;
     FOUNDATION_EXPORT const unsigned char VKNetworkVersionString[];
 
-    #import <VKNetwork/YTKRequest.h>
-    #import <VKNetwork/YTKBaseRequest.h>
-    #import <VKNetwork/YTKNetworkAgent.h>
-    #import <VKNetwork/YTKNetworkConfig.h>
+    #import <VKNetwork/VKRequest.h>
+    #import <VKNetwork/VKBaseRequest.h>
+    #import <VKNetwork/VKNetworkAgent.h>
+    #import <VKNetwork/VKNetworkConfig.h>
 
 #else
 

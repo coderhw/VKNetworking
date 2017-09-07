@@ -1,5 +1,5 @@
 //
-//  YTKBaseRequest.m
+//  VKBaseRequest.m
 //
 //  Created by vanke on 2017/8/31.
 //  Copyright © 2017年 Evan. All rights reserved.
@@ -15,7 +15,7 @@
 #import "AFNetworking.h"
 #endif
 
-NSString *const YTKRequestValidationErrorDomain = @"com.yuantiku.request.validation";
+NSString *const VKRequestValidationErrorDomain = @"com.yuantiku.request.validation";
 
 @interface VKBaseRequest ()
 
@@ -68,8 +68,8 @@ NSString *const YTKRequestValidationErrorDomain = @"com.yuantiku.request.validat
 
 #pragma mark - Request Configuration
 
-- (void)setCompletionBlockWithSuccess:(YTKRequestCompletionBlock)success
-                              failure:(YTKRequestCompletionBlock)failure {
+- (void)setCompletionBlockWithSuccess:(VKRequestCompletionBlock)success
+                              failure:(VKRequestCompletionBlock)failure {
     self.successCompletionBlock = success;
     self.failureCompletionBlock = failure;
 }
@@ -101,8 +101,8 @@ NSString *const YTKRequestValidationErrorDomain = @"com.yuantiku.request.validat
     [self toggleAccessoriesDidStopCallBack];
 }
 
-- (void)startWithCompletionBlockWithSuccess:(YTKRequestCompletionBlock)success
-                                    failure:(YTKRequestCompletionBlock)failure {
+- (void)startWithCompletionBlockWithSuccess:(VKRequestCompletionBlock)success
+                                    failure:(VKRequestCompletionBlock)failure {
     [self setCompletionBlockWithSuccess:success failure:failure];
     [self start];
 }
@@ -145,15 +145,15 @@ NSString *const YTKRequestValidationErrorDomain = @"com.yuantiku.request.validat
     return argument;
 }
 
-- (YTKRequestMethod)requestMethod {
+- (VKRequestMethod)requestMethod {
     return VKRequestMethodGET;
 }
 
-- (YTKRequestSerializerType)requestSerializerType {
+- (VKRequestSerializerType)requestSerializerType {
     return VKRequestSerializerTypeHTTP;
 }
 
-- (YTKResponseSerializerType)responseSerializerType {
+- (VKResponseSerializerType)responseSerializerType {
     return VKResponseSerializerTypeJSON;
 }
 

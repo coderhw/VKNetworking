@@ -26,16 +26,16 @@
     return YES;
 }
 
-//- (YTKRequestMethod)requestMethod {
-//    return YTKRequestMethodGET;
+//- (VKRequestMethod)requestMethod {
+//    return VKRequestMethodGET;
 //}
 //
-//- (YTKRequestSerializerType)requestSerializerType {
-//    return YTKRequestSerializerTypeHTTP;
+//- (VKRequestSerializerType)requestSerializerType {
+//    return VKRequestSerializerTypeHTTP;
 //}
 //
-//- (YTKResponseSerializerType)responseSerializerType {
-//    return YTKResponseSerializerTypeJSON;
+//- (VKResponseSerializerType)responseSerializerType {
+//    return VKResponseSerializerTypeJSON;
 //}
 
 @end

@@ -1,5 +1,5 @@
 //
-//  YTKNetworkConfig.m
+//  VKNetworkConfig.m
 //
 //  Created by vanke on 2017/8/31.
 //  Copyright © 2017年 Evan. All rights reserved.
