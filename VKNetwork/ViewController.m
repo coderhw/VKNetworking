@@ -18,13 +18,12 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
 }
 
 - (IBAction)getApiRequest:(id)sender {
-    
-    
     
     VKDBBookQueryRequest *dbQueryRequest = [[VKDBBookQueryRequest alloc] init];
     dbQueryRequest.animatingText = @"正在加载";

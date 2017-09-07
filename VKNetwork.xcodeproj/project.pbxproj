@@ -84,6 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				641505731F5FE5CC00D5EB20 /* YTKNetwork.h */,
+				6415057A1F5FE5CC00D5EB20 /* YTKRequest.h */,
+				6415057B1F5FE5CC00D5EB20 /* YTKRequest.m */,
 				641505691F5FE5CC00D5EB20 /* YTKBaseRequest.h */,
 				6415056A1F5FE5CC00D5EB20 /* YTKBaseRequest.m */,
 				641505741F5FE5CC00D5EB20 /* YTKNetworkAgent.h */,
@@ -92,8 +94,6 @@
 				641505771F5FE5CC00D5EB20 /* YTKNetworkConfig.m */,
 				641505781F5FE5CC00D5EB20 /* YTKNetworkPrivate.h */,
 				641505791F5FE5CC00D5EB20 /* YTKNetworkPrivate.m */,
-				6415057A1F5FE5CC00D5EB20 /* YTKRequest.h */,
-				6415057B1F5FE5CC00D5EB20 /* YTKRequest.m */,
 			);
 			path = YTKNetwork;
 			sourceTree = "<group>";

@@ -173,15 +173,6 @@ typedef void(^YTKRequestCompletionBlock)(__kindof YTKBaseRequest *request);
 ///  This can be use to construct HTTP body when needed in POST request. Default is nil.
 @property (nonatomic, copy, nullable) AFConstructingBlock constructingBodyBlock;
 
-///  This value is used to perform resumable download request. Default is nil.
-///
-///  @discussion NSURLSessionDownloadTask is used when this value is not nil.
-///              The exist file at the path will be removed before the request starts. If request succeed, file will
-///              be saved to this path automatically, otherwise the response will be saved to `responseData`
-///              and `responseString`. For this to work, server must support `Range` and response with
-///              proper `Last-Modified` and/or `Etag`. See `NSURLSessionDownloadTask` for more detail.
-@property (nonatomic, strong, nullable) NSString *resumableDownloadPath;
-
 ///  You can use this block to track the download progress. See also `resumableDownloadPath`.
 @property (nonatomic, copy, nullable) AFURLSessionTaskProgressBlock resumableDownloadProgressBlock;
 

@@ -87,13 +87,8 @@ static dispatch_queue_t ytkrequest_cache_writing_queue() {
 @implementation YTKRequest
 
 - (void)start {
+    
     if (self.ignoreCache) {
-        [self startWithoutCache];
-        return;
-    }
-
-    // Do not cache download request.
-    if (self.resumableDownloadPath) {
         [self startWithoutCache];
         return;
     }
@@ -342,7 +337,7 @@ static dispatch_queue_t ytkrequest_cache_writing_queue() {
     _dataFromCache = NO;
 }
 
-#pragma mark -
+#pragma mark - Private Method
 
 - (void)createDirectoryIfNeeded:(NSString *)path {
     NSFileManager *fileManager = [NSFileManager defaultManager];

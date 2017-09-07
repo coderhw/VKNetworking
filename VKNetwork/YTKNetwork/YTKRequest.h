@@ -26,28 +26,27 @@ NS_ENUM(NSInteger) {
 ///  Based on YTKBaseRequest, YTKRequest adds local caching feature. Note download
 ///  request will not be cached whatsoever, because download request may involve complicated
 ///  cache control policy controlled by `Cache-Control`, `Last-Modified`, etc.
+/// YTKRequest
 @interface YTKRequest : YTKBaseRequest
 
-///  Whether to use cache as response or not.
-///  Default is NO, which means caching will take effect with specific arguments.
-///  Note that `cacheTimeInSeconds` default is -1. As a result cache data is not actually
-///  used as response unless you return a positive value in `cacheTimeInSeconds`.
-///
-///  Also note that this option does not affect storing the response, which means response will always be saved
-///  even `ignoreCache` is YES.
+///  是否使用缓存
+///  默认为No, 需要配置额外的参数才能让缓存发挥作用。
+///  注意'cacheTimeInSeconds'
+///  事实上，如果不给cacheTimeInSeconds设置一个有效值，那么将不会有作用
+///  该值不会影响即将缓存的响应数据。意味着:响应数据每次都会被缓存下来。即使ignoreCache为YES
 @property (nonatomic) BOOL ignoreCache;
 
-///  Whether data is from local cache.
+/// 当前的数据是否从缓存获得
 - (BOOL)isDataFromCache;
 
-///  Manually load cache from storage.
+///  是否成功从缓存中读取数据
 ///
-///  @param error If an error occurred causing cache loading failed, an error object will be passed, otherwise NULL.
+///  @param error 如果过程中出现错误，将会传递error对象，否则为NULL
 ///
 ///  @return Whether cache is successfully loaded.
 - (BOOL)loadCacheWithError:(NSError * __autoreleasing *)error;
 
-///  Start request without reading local cache even if it exists. Use this to update local cache.
+///  强制更新缓存
 - (void)startWithoutCache;
 
 ///  Save response data (probably from another request) to this request's cache location
@@ -55,11 +54,10 @@ NS_ENUM(NSInteger) {
 
 #pragma mark - Subclass Override
 
-///  The max time duration that cache can stay in disk until it's considered expired.
-///  Default is -1, which means response is not actually saved as cache.
+///  缓存的时间. (默认为-1. 实际上缓存并没有保存起来)
 - (NSInteger)cacheTimeInSeconds;
 
-///  Version can be used to identify and invalidate local cache. Default is 0.
+///  cacheVersion:可以用来鉴定和是本地的的cache失效，默认值为0
 - (long long)cacheVersion;
 
 ///  This can be used as additional identifier that tells the cache needs updating.
@@ -69,7 +67,7 @@ NS_ENUM(NSInteger) {
 ///              If you intend to use your custom class type, make sure that `description` is correctly implemented.
 - (nullable id)cacheSensitiveData;
 
-///  Whether cache is asynchronously written to storage. Default is YES.
+///  cache是否是异步写入缓存，默认为YES
 - (BOOL)writeCacheAsynchronously;
 
 @end

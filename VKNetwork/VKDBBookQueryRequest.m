@@ -18,6 +18,14 @@
     return @"v2/book/1220562";
 }
 
+- (NSInteger)cacheTimeInSeconds {
+    return 3600;
+}
+
+- (BOOL)ignoreCache {
+    return NO;
+}
+
 //- (YTKRequestMethod)requestMethod {
 //    return YTKRequestMethodGET;
 //}

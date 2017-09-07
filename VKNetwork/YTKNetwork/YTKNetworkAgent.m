@@ -158,11 +158,7 @@
 
     switch (method) {
         case YTKRequestMethodGET:
-            if (request.resumableDownloadPath) {
-                return [self downloadTaskWithDownloadPath:request.resumableDownloadPath requestSerializer:requestSerializer URLString:url parameters:param progress:request.resumableDownloadProgressBlock error:error];
-            } else {
-                return [self dataTaskWithHTTPMethod:@"GET" requestSerializer:requestSerializer URLString:url parameters:param error:error];
-            }
+            return [self dataTaskWithHTTPMethod:@"GET" requestSerializer:requestSerializer URLString:url parameters:param error:error];
         case YTKRequestMethodPOST:
             return [self dataTaskWithHTTPMethod:@"POST" requestSerializer:requestSerializer URLString:url parameters:param constructingBodyWithBlock:constructingBlock error:error];
         case YTKRequestMethodHEAD:
@@ -199,7 +195,6 @@
 
     NSAssert(request.requestTask != nil, @"requestTask should not be nil");
 
-    // Set request task priority
     // !!Available on iOS 8 +
     if ([request.requestTask respondsToSelector:@selector(priority)]) {
         switch (request.requestPriority) {
@@ -356,12 +351,6 @@
     YTKLog(@"Request %@ failed, status code = %ld, error = %@",
            NSStringFromClass([request class]), (long)request.responseStatusCode, error.localizedDescription);
 
-    // Save incomplete download data.
-    NSData *incompleteDownloadData = error.userInfo[NSURLSessionDownloadTaskResumeData];
-    if (incompleteDownloadData) {
-        [incompleteDownloadData writeToURL:[self incompleteDownloadTempPathForDownloadPath:request.resumableDownloadPath] atomically:YES];
-    }
-
     // Load response from file and clean up if download task failed.
     if ([request.responseObject isKindOfClass:[NSURL class]]) {
         NSURL *url = request.responseObject;
@@ -411,7 +400,11 @@
                                        URLString:(NSString *)URLString
                                       parameters:(id)parameters
                                            error:(NSError * _Nullable __autoreleasing *)error {
-    return [self dataTaskWithHTTPMethod:method requestSerializer:requestSerializer URLString:URLString parameters:parameters constructingBodyWithBlock:nil error:error];
+    return [self dataTaskWithHTTPMethod:method
+                      requestSerializer:requestSerializer
+                              URLString:URLString
+                             parameters:parameters
+              constructingBodyWithBlock:nil error:error];
 }
 
 - (NSURLSessionDataTask *)dataTaskWithHTTPMethod:(NSString *)method
@@ -423,9 +416,14 @@
     NSMutableURLRequest *request = nil;
 
     if (block) {
-        request = [requestSerializer multipartFormRequestWithMethod:method URLString:URLString parameters:parameters constructingBodyWithBlock:block error:error];
+        request = [requestSerializer multipartFormRequestWithMethod:method
+                                                          URLString:URLString
+                                                         parameters:parameters
+                                          constructingBodyWithBlock:block error:error];
     } else {
-        request = [requestSerializer requestWithMethod:method URLString:URLString parameters:parameters error:error];
+        request = [requestSerializer requestWithMethod:method
+                                             URLString:URLString
+                                            parameters:parameters error:error];
     }
 
     __block NSURLSessionDataTask *dataTask = nil;
@@ -437,109 +435,5 @@
     return dataTask;
 }
 
-- (NSURLSessionDownloadTask *)downloadTaskWithDownloadPath:(NSString *)downloadPath
-                                         requestSerializer:(AFHTTPRequestSerializer *)requestSerializer
-                                                 URLString:(NSString *)URLString
-                                                parameters:(id)parameters
-                                                  progress:(nullable void (^)(NSProgress *downloadProgress))downloadProgressBlock
-                                                     error:(NSError * _Nullable __autoreleasing *)error {
-    // add parameters to URL;
-    NSMutableURLRequest *urlRequest = [requestSerializer requestWithMethod:@"GET" URLString:URLString parameters:parameters error:error];
-
-    NSString *downloadTargetPath;
-    BOOL isDirectory;
-    if(![[NSFileManager defaultManager] fileExistsAtPath:downloadPath isDirectory:&isDirectory]) {
-        isDirectory = NO;
-    }
-    // If targetPath is a directory, use the file name we got from the urlRequest.
-    // Make sure downloadTargetPath is always a file, not directory.
-    if (isDirectory) {
-        NSString *fileName = [urlRequest.URL lastPathComponent];
-        downloadTargetPath = [NSString pathWithComponents:@[downloadPath, fileName]];
-    } else {
-        downloadTargetPath = downloadPath;
-    }
-
-    // AFN use `moveItemAtURL` to move downloaded file to target path,
-    // this method aborts the move attempt if a file already exist at the path.
-    // So we remove the exist file before we start the download task.
-    // https://github.com/AFNetworking/AFNetworking/issues/3775
-    if ([[NSFileManager defaultManager] fileExistsAtPath:downloadTargetPath]) {
-        [[NSFileManager defaultManager] removeItemAtPath:downloadTargetPath error:nil];
-    }
-
-    BOOL resumeDataFileExists = [[NSFileManager defaultManager] fileExistsAtPath:[self incompleteDownloadTempPathForDownloadPath:downloadPath].path];
-    NSData *data = [NSData dataWithContentsOfURL:[self incompleteDownloadTempPathForDownloadPath:downloadPath]];
-    BOOL resumeDataIsValid = [YTKNetworkUtils validateResumeData:data];
-
-    BOOL canBeResumed = resumeDataFileExists && resumeDataIsValid;
-    BOOL resumeSucceeded = NO;
-    __block NSURLSessionDownloadTask *downloadTask = nil;
-    // Try to resume with resumeData.
-    // Even though we try to validate the resumeData, this may still fail and raise excecption.
-    if (canBeResumed) {
-        @try {
-            downloadTask = [_manager downloadTaskWithResumeData:data progress:downloadProgressBlock destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-                return [NSURL fileURLWithPath:downloadTargetPath isDirectory:NO];
-            } completionHandler:
-                            ^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-                                [self handleRequestResult:downloadTask responseObject:filePath error:error];
-                            }];
-            resumeSucceeded = YES;
-        } @catch (NSException *exception) {
-            YTKLog(@"Resume download failed, reason = %@", exception.reason);
-            resumeSucceeded = NO;
-        }
-    }
-    if (!resumeSucceeded) {
-        downloadTask = [_manager downloadTaskWithRequest:urlRequest progress:downloadProgressBlock destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-            return [NSURL fileURLWithPath:downloadTargetPath isDirectory:NO];
-        } completionHandler:
-                        ^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-                            [self handleRequestResult:downloadTask responseObject:filePath error:error];
-                        }];
-    }
-    return downloadTask;
-}
-
-#pragma mark - Resumable Download
-
-- (NSString *)incompleteDownloadTempCacheFolder {
-    NSFileManager *fileManager = [NSFileManager new];
-    static NSString *cacheFolder;
-
-    if (!cacheFolder) {
-        NSString *cacheDir = NSTemporaryDirectory();
-        cacheFolder = [cacheDir stringByAppendingPathComponent:kYTKNetworkIncompleteDownloadFolderName];
-    }
-
-    NSError *error = nil;
-    if(![fileManager createDirectoryAtPath:cacheFolder withIntermediateDirectories:YES attributes:nil error:&error]) {
-        YTKLog(@"Failed to create cache directory at %@", cacheFolder);
-        cacheFolder = nil;
-    }
-    return cacheFolder;
-}
-
-- (NSURL *)incompleteDownloadTempPathForDownloadPath:(NSString *)downloadPath {
-    NSString *tempPath = nil;
-    NSString *md5URLString = [YTKNetworkUtils md5StringFromString:downloadPath];
-    tempPath = [[self incompleteDownloadTempCacheFolder] stringByAppendingPathComponent:md5URLString];
-    return [NSURL fileURLWithPath:tempPath];
-}
-
-//#pragma mark - Testing
-//
-//- (AFHTTPSessionManager *)manager {
-//    return _manager;
-//}
-//
-//- (void)resetURLSessionManager {
-//    _manager = [AFHTTPSessionManager manager];
-//}
-//
-//- (void)resetURLSessionManagerWithConfiguration:(NSURLSessionConfiguration *)configuration {
-//    _manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:configuration];
-//}
 
 @end
