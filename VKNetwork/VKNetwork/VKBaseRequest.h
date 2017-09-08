@@ -173,9 +173,6 @@ typedef void(^VKRequestCompletionBlock)(__kindof VKBaseRequest *request);
 ///  This can be use to construct HTTP body when needed in POST request. Default is nil.
 @property (nonatomic, copy, nullable) AFConstructingBlock constructingBodyBlock;
 
-///  You can use this block to track the download progress. See also `resumableDownloadPath`.
-@property (nonatomic, copy, nullable) AFURLSessionTaskProgressBlock resumableDownloadProgressBlock;
-
 ///  请求优先级 默认`VKRequestPriorityDefault`.
 @property (nonatomic) VKRequestPriority requestPriority;
 

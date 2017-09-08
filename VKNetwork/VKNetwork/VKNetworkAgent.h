@@ -12,8 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class VKBaseRequest;
 
-///  VKNetworkAgent is the underlying class that handles actual request generation,
-///  serialization and response handling.
+
+///  VKNetworkAgent: 处理request、序列化、响应数据处理等工作
 @interface VKNetworkAgent : NSObject
 
 - (instancetype)init NS_UNAVAILABLE;

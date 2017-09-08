@@ -43,7 +43,7 @@ NS_ENUM(NSInteger) {
 ///
 ///  @param error 如果过程中出现错误，将会传递error对象，否则为NULL
 ///
-///  @return Whether cache is successfully loaded.
+///  @return BOOL值 是否成功从缓存中读取数据
 - (BOOL)loadCacheWithError:(NSError * __autoreleasing *)error;
 
 ///  强制更新缓存

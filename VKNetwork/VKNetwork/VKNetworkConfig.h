@@ -13,20 +13,23 @@ NS_ASSUME_NONNULL_BEGIN
 @class VKBaseRequest;
 @class AFSecurityPolicy;
 
-///  VKUrlFilterProtocol can be used to append common parameters to requests before sending them.
+///  VKUrlFilterProtocol 可以通过它给请求追加参数
 @protocol VKUrlFilterProtocol <NSObject>
-///  Preprocess request URL before actually sending them.
+
+///  在请求发出去之前预处理Request URL
 ///
 ///  @param originUrl request's origin URL, which is returned by `requestUrl`
 ///  @param request   request itself
 ///
 ///  @return A new url which will be used as a new `requestUrl`
 - (NSString *)filterUrl:(NSString *)originUrl withRequest:(VKBaseRequest *)request;
+
 @end
 
 ///  VKCacheDirPathFilterProtocol can be used to append common path components when caching response results
 @protocol VKCacheDirPathFilterProtocol <NSObject>
-///  Preprocess cache path before actually saving them.
+
+///  在保存之前提前配置cache path
 ///
 ///  @param originPath original base cache path, which is generated in `VKRequest` class.
 ///  @param request    request itself
@@ -35,39 +38,47 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)filterCacheDirPath:(NSString *)originPath withRequest:(VKBaseRequest *)request;
 @end
 
-///  VKNetworkConfig stored global network-related configurations, which will be used in `VKNetworkAgent`
-///  to form and filter requests, as well as caching response.
+///  VKNetworkConfig 保存了全局的network相关的配置参数,
+///  这些参数将会用在VKNetworkAgent中去实现request或者filter Request, 或者caching response
 @interface VKNetworkConfig : NSObject
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
 
-///  Return a shared config object.
+///  返回config object
 + (VKNetworkConfig *)sharedConfig;
 
-///  Request base URL, such as "http://www.yuantiku.com". Default is empty string.
+///  请求Host, eg:http://www.vanke.com 默认为nil
 @property (nonatomic, strong) NSString *baseUrl;
-///  Request CDN URL. Default is empty string.
+
+///  请求的CDN URL, 默认为nil
 @property (nonatomic, strong) NSString *cdnUrl;
+
 ///  URL filters. See also `VKUrlFilterProtocol`.
 @property (nonatomic, strong, readonly) NSArray<id<VKUrlFilterProtocol>> *urlFilters;
+
 ///  Cache path filters. See also `VKCacheDirPathFilterProtocol`.
 @property (nonatomic, strong, readonly) NSArray<id<VKCacheDirPathFilterProtocol>> *cacheDirPathFilters;
-///  Security policy will be used by AFNetworking. See also `AFSecurityPolicy`.
+
+///  Security policy,将会被AFNetworking使用 See also `AFSecurityPolicy`.
 @property (nonatomic, strong) AFSecurityPolicy *securityPolicy;
-///  Whether to log debug info. Default is NO;
+
+///  是否记录debug信息, 默认为YES
 @property (nonatomic) BOOL debugLogEnabled;
-///  SessionConfiguration will be used to initialize AFHTTPSessionManager. Default is nil.
+
+///  SessionConfiguration将会被用来初始化AFHTTPSessionManager, 默认为nil
 @property (nonatomic, strong) NSURLSessionConfiguration* sessionConfiguration;
 
-///  Add a new URL filter.
+///  添加url filter.
 - (void)addUrlFilter:(id<VKUrlFilterProtocol>)filter;
 
-///  Remove all URL filters.
+///  移除所有URL filters
 - (void)clearUrlFilter;
-///  Add a new cache path filter
+
+///  添加cache path filter
 - (void)addCacheDirPathFilter:(id<VKCacheDirPathFilterProtocol>)filter;
-///  Clear all cache path filters.
+
+///  移除所有 cache path filters.
 - (void)clearCacheDirPathFilter;
 
 @end

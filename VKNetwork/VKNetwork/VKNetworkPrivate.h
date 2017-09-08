@@ -58,7 +58,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface VKBaseRequest (RequestAccessory)
 
 - (void)toggleAccessoriesWillStartCallBack;
+
 - (void)toggleAccessoriesWillStopCallBack;
+
 - (void)toggleAccessoriesDidStopCallBack;
 
 @end
@@ -66,7 +68,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface VKNetworkAgent (Private)
 
 - (AFHTTPSessionManager *)manager;
+
 - (void)resetURLSessionManager;
+
 - (void)resetURLSessionManagerWithConfiguration:(NSURLSessionConfiguration *)configuration;
 
 - (NSString *)incompleteDownloadTempCacheFolder;
