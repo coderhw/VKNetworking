@@ -21,22 +21,125 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="saR-iR-EFz">
-                                <rect key="frame" x="116" y="28" width="143" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="GET请求"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="saR-iR-EFz">
+                                <rect key="frame" x="22" y="28" width="143" height="36"/>
+                                <color key="backgroundColor" red="0.016024021119999999" green="0.036486827569999998" blue="0.0060711664970000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="oqN-6o-Jbu"/>
+                                    <constraint firstAttribute="width" constant="143" id="ycc-TZ-Xse"/>
+                                </constraints>
+                                <state key="normal" title="GET请求">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="getApiRequest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YFi-C1-iH1"/>
+                                    <action selector="getApiRequestGet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="exd-CG-oX2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocr-hO-Eo8">
+                                <rect key="frame" x="210" y="28" width="143" height="36"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="143" id="Hgw-aK-CVf"/>
+                                    <constraint firstAttribute="height" constant="36" id="u1x-OR-Obl"/>
+                                </constraints>
+                                <state key="normal" title="POST请求">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="getApiRequest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dLv-to-jXx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jB-6H-Cn3">
+                                <rect key="frame" x="22" y="72" width="143" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="143" id="ogj-Y6-Jbp"/>
+                                    <constraint firstAttribute="height" constant="36" id="pQc-wp-5jb"/>
+                                </constraints>
+                                <state key="normal" title="DELETE请求">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="getApiRequest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9QK-c6-htQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvs-PQ-Kiu">
+                                <rect key="frame" x="210" y="72" width="143" height="36"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="143" id="DTQ-vG-D6V"/>
+                                    <constraint firstAttribute="height" constant="36" id="IKd-eP-BFN"/>
+                                </constraints>
+                                <state key="normal" title="PUT请求">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="getApiRequest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OBq-fW-lWe"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请求结果" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oe-UZ-bqL">
+                                <rect key="frame" x="0.0" y="411" width="375" height="256"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="256" id="CW5-e5-orm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xa7-6E-iKh">
+                                <rect key="frame" x="150" y="376" width="75" height="27"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="StX-fL-vHL"/>
+                                </constraints>
+                                <state key="normal" title="clear">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clearButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Egx-vw-PiQ"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="wvs-PQ-Kiu" secondAttribute="trailing" constant="22" id="0K3-VN-Pvw"/>
+                            <constraint firstItem="xa7-6E-iKh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="150" id="4Wi-mO-KQs"/>
+                            <constraint firstItem="ocr-hO-Eo8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="7Tk-C8-Atg"/>
+                            <constraint firstItem="saR-iR-EFz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="22" id="AZW-gh-PN5"/>
+                            <constraint firstItem="0oe-UZ-bqL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="OR8-uN-E1T"/>
+                            <constraint firstAttribute="trailing" secondItem="xa7-6E-iKh" secondAttribute="trailing" constant="150" id="PqP-i7-Rxa"/>
+                            <constraint firstAttribute="trailing" secondItem="ocr-hO-Eo8" secondAttribute="trailing" constant="22" id="TEM-9p-TH0"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0oe-UZ-bqL" secondAttribute="bottom" id="X1e-AS-RvC"/>
+                            <constraint firstItem="saR-iR-EFz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="k82-Jc-Rx4"/>
+                            <constraint firstItem="0oe-UZ-bqL" firstAttribute="top" secondItem="xa7-6E-iKh" secondAttribute="bottom" constant="8" id="nkV-86-woN"/>
+                            <constraint firstItem="wvs-PQ-Kiu" firstAttribute="top" secondItem="ocr-hO-Eo8" secondAttribute="bottom" constant="8" id="xBJ-bJ-OTb"/>
+                            <constraint firstItem="2jB-6H-Cn3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="22" id="xcX-Cz-59w"/>
+                            <constraint firstItem="2jB-6H-Cn3" firstAttribute="top" secondItem="saR-iR-EFz" secondAttribute="bottom" constant="8" id="zDJ-d6-UcJ"/>
+                            <constraint firstAttribute="trailing" secondItem="0oe-UZ-bqL" secondAttribute="trailing" id="zH3-tO-14h"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="resultLabel" destination="0oe-UZ-bqL" id="rYg-sq-h5y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-194.40000000000001" y="135.38230884557723"/>
+            <point key="canvasLocation" x="-1068" y="11.244377811094454"/>
         </scene>
     </scenes>
 </document>

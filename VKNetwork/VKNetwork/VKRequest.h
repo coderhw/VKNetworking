@@ -22,11 +22,9 @@ NS_ENUM(NSInteger) {
     VKRequestCacheErrorInvalidCacheData = -7,
 };
 
-///  VKRequest is the base class you should inherit to create your own request class.
-///  Based on VKBaseRequest, VKRequest adds local caching feature. Note download
-///  request will not be cached whatsoever, because download request may involve complicated
-///  cache control policy controlled by `Cache-Control`, `Last-Modified`, etc.
-/// VKRequest
+
+///  VKRequest 是最基础的请求类。所有用户创建的请求必须继承自该类。 VKRequest添加了缓存功能。
+///  (注意:如果是下载请求，将不会被缓存下来。)
 @interface VKRequest : VKBaseRequest
 
 ///  是否使用缓存
@@ -60,11 +58,10 @@ NS_ENUM(NSInteger) {
 ///  cacheVersion:可以用来鉴定和是本地的的cache失效，默认值为0
 - (long long)cacheVersion;
 
-///  This can be used as additional identifier that tells the cache needs updating.
-///
-///  @discussion The `description` string of this object will be used as an identifier to verify whether cache
-///              is invalid. Using `NSArray` or `NSDictionary` as return value type is recommended. However,
-///              If you intend to use your custom class type, make sure that `description` is correctly implemented.
+
+///  cacheSensitiveData可以当做需要更新cache的另外一个标识。
+///  该objec的description将会被用来标识cache是否无效。 推荐使用NSArray和NSDictionary作为返回值。
+///  但是如果你打算用自定义的class,确保实现了description方法
 - (nullable id)cacheSensitiveData;
 
 ///  cache是否是异步写入缓存，默认为YES

@@ -81,6 +81,15 @@
 			path = VKNetwork;
 			sourceTree = "<group>";
 		};
+		6420B4BD1F6236EB0064D288 /* VKNetworkTest */ = {
+			isa = PBXGroup;
+			children = (
+				641505851F5FE70200D5EB20 /* VKDBBookQueryRequest.h */,
+				641505861F5FE70200D5EB20 /* VKDBBookQueryRequest.m */,
+			);
+			name = VKNetworkTest;
+			sourceTree = "<group>";
+		};
 		6489EB0F1F57FAF400B79C14 = {
 			isa = PBXGroup;
 			children = (
@@ -104,12 +113,11 @@
 			children = (
 				6489EB1E1F57FAF400B79C14 /* AppDelegate.h */,
 				6489EB1F1F57FAF400B79C14 /* AppDelegate.m */,
-				641505681F5FE5CC00D5EB20 /* VKNetwork */,
 				6489EB211F57FAF400B79C14 /* ViewController.h */,
 				6489EB221F57FAF400B79C14 /* ViewController.m */,
-				641505851F5FE70200D5EB20 /* VKDBBookQueryRequest.h */,
-				641505861F5FE70200D5EB20 /* VKDBBookQueryRequest.m */,
 				6489EB241F57FAF400B79C14 /* Main.storyboard */,
+				6420B4BD1F6236EB0064D288 /* VKNetworkTest */,
+				641505681F5FE5CC00D5EB20 /* VKNetwork */,
 				6489EB1B1F57FAF400B79C14 /* Supporting Files */,
 			);
 			path = VKNetwork;
